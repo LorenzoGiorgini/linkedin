@@ -4,7 +4,7 @@ import LinkedInLogo from "../assets/linkedin.png";
 
 const Footer = () => {
   return (
-    <div>
+    <Container>
       <Container className="footerBody">
         <Row className="footerLogo">
           <img src={LinkedInLogo} />
@@ -37,7 +37,7 @@ const Footer = () => {
           </Col>
         </Row>
       </Container>
-    </div>
+    </Container>
   );
 };
 
