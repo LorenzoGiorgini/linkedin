@@ -1,0 +1,154 @@
+* {
+    margin: 0;
+}
+
+body {
+    background: #F3F2EF;
+}
+
+h1 , h2 , h3 {
+    margin: 0;
+}
+
+.color {
+    background: white;
+}
+
+.jumbo-container {
+    color: white;
+}
+
+.padding-jumbo {
+    padding: 0 24px 24px;
+}
+
+.img-bck-container {
+    width: 100%;
+    height: 30vh;
+}
+
+.img-background {
+    background-image: url("https://via.placeholder.com/1000");
+    width: 100%;
+    height: 25vh;
+    color: white;
+}
+
+.img-profile {
+    width: 152px;
+    height: 152px;
+    border-radius: 50%;
+    object-fit: cover;
+    margin-top: -50px;
+}
+
+.image-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 50px;
+}
+
+.education-banner {
+    width: 32px;
+    height: 32px;
+}
+
+
+.font-small {
+    font-size: 14px;
+    color: black;
+}
+
+.font-medium {
+    font-size: 16px;
+    color: black;
+}
+
+.font-big {
+    font-size: 24px;
+    color: black;
+}
+
+.contact-info {
+    color: #0a66c2;
+}
+
+.contact-info:hover {
+    text-decoration: underline;
+}
+
+.connections {
+    color: black;
+    font-weight: 600;
+
+}
+
+.connections:hover {
+    text-decoration: underline;
+}
+
+
+.button-blue {
+    border-radius: 1.6rem;
+    background: #0a66c2;
+    height: 32px;
+    width: 92px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 600;
+    cursor: pointer;
+    overflow: hidden;
+    margin-right: 8px;
+    margin-top: 20px;
+    margin-bottom: 10px;
+}
+
+.button-blue:hover {
+    opacity: 0.7;
+}
+
+.button-transparent {
+    border-radius: 1.6rem;
+    background: transparent;
+    height: 32px;
+    width: 120px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 600;
+    cursor: pointer;
+    overflow: hidden;
+    margin-right: 8px;
+    margin-top: 20px;
+    margin-bottom: 10px;
+    border: 1px solid black;
+}
+
+.button-transparent:hover {
+    border: 2px solid black;
+    opacity: 0.8;
+}
+
+.button-more {
+    border-radius: 1.6rem;
+    background: transparent;
+    height: 32px;
+    width: 70px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 600;
+    cursor: pointer;
+    overflow: hidden;
+    margin-right: 8px;
+    margin-top: 20px;
+    margin-bottom: 10px;
+    border: 1px solid black;
+}
+
+.button-more:hover {
+    border: 2px solid black;
+    opacity: 0.8;
+}
