@@ -92,7 +92,7 @@ class Sidebar extends Component {
 
               {/* People you may know */}
               <div className="people pt-3 ">
-                <span className="pl-3 pb-3 text">People also viewed</span>
+                <span className="pl-3 pb-3 text">People you may know</span>
                 <div className="pl-3 pt-2">
                   {/* Loading profiles from fetched data */}
                   {this.state.profiles.map((profile) => (
@@ -116,13 +116,13 @@ class Sidebar extends Component {
                           {/* Title */}
                           <div className="profile-title">{profile.title}</div>
 
-                          {/* Message */}
+                          {/* Connect */}
                           <div className="profile-message">
                             <Button
                               className="rounded-pill btn-sm"
                               variant="outline-dark"
                             >
-                              Message
+                              Connect
                             </Button>
                           </div>
                         </div>
