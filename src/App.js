@@ -4,6 +4,7 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import NavBar from './components/NavBar';
 import './CssStyles/Jumbo.css';
 import Profile from './views/Profile';
+import Footer from './components/Footer'
 
 
 function App() {
@@ -21,6 +22,7 @@ function App() {
         <Profile />
       </Route>
       </Router>
+      <Footer/>
     </div>
   );
 }
