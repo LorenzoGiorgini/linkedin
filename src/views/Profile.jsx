@@ -1,5 +1,6 @@
 import { Container , Row , Col } from "react-bootstrap"
 import Jumbo from "../components/Jumbo"
+import SideBar from "../components/SideBar"
 
 
 
@@ -11,8 +12,9 @@ const Profile = () => (
             <Col md={8} className="color">
                 <Jumbo />
             </Col>
+            
             <Col md={4} className="color">
-                <h1>dsdfdsfsf</h1>
+                <SideBar />
             </Col>
         </Row>
     </Container>

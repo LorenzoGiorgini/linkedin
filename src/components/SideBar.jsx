@@ -1,5 +1,4 @@
-import { Component } from "react";
-import { useState } from 'react'
+import { useEffect , useState } from 'react'
 import { Col, Row, Container, Button, Image } from "react-bootstrap";
 import Advertisement from "../assets/advertisement.jpg";
 // import "./Sidebar.css";
@@ -8,12 +7,11 @@ import Advertisement from "../assets/advertisement.jpg";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faGlobe, faQuestionCircle } from "@fortawesome/free-solid-svg-icons";
 
-class Sidebar extends Component {
-  state = {
-    profiles: [],
-  };
+const Sidebar = () => {
 
-  componentDidMount = async () => {
+  const [ profiles , setProfiles ] = useState([])
+
+  const fetchData = async () => {
     try {
       let response = await fetch(
         "https://striveschool-api.herokuapp.com/api/profile/",
@@ -27,15 +25,17 @@ class Sidebar extends Component {
       let data = await response.json();
       let result = console.log("This is the fetched data from the API", data);
 
-      this.setState({
-        profiles: data.slice("0, 1"),
-      });
-      console.log("Profile states array", this.state.profiles);
+      setProfiles(data.slice(0, 5));
+      console.log(profiles)
     } catch (error) {
       console.log(error, "Error");
     }
-  };
-  render() {
+  }
+
+    useEffect = (() => {
+      return fetchData()
+    } , [])
+
     return (
       <>
         <Container>
@@ -59,7 +59,7 @@ class Sidebar extends Component {
                 </div>
 
                 {/* add profile in another language  */}
-                <div className="sidebar-btn mt-2 mb-2 d-flex">
+                {/* <div className="sidebar-btn mt-2 mb-2 d-flex">
                   <div className="ml-3">
                     <Button
                       className="rounded-pill btn-sm long-btn pl-2"
@@ -79,7 +79,7 @@ class Sidebar extends Component {
                     className="button-icon globe-icon ml-auto mr-4"
                     icon={faGlobe}
                   />
-                </div>
+                </div> */}
               </div>
 
               {/* Advertisement */}
@@ -137,7 +137,6 @@ class Sidebar extends Component {
         </Container>
       </>
     );
-  }
 }
 
 export default Sidebar;
