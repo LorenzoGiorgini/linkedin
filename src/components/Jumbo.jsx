@@ -13,7 +13,7 @@ const Jumbo = (props) => {
                 <div className="image-container">
                     <div className="img-profile-container"><img className="img-profile" src={props.user.image} /></div>
                     {
-                        props.mainUser === "me" && <PopUp />
+                        props.mainUser === "me" && <PopUp obj={props.user}/>
                     }      
                 </div>
                 <Row>
