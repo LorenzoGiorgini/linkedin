@@ -4,7 +4,7 @@ import { useState , useEffect } from "react";
 const PopUp = (props) => {
 
     const [ lgShow, setLgShow ] = useState(false);
-    const [ updateUser , setUpdateUser ] = useState({})
+    
     
     const [user, setUser] = useState(props.obj)
 
@@ -18,33 +18,23 @@ const PopUp = (props) => {
     const handleSubmit = async (e) => {
         e.preventDefault()
         // now how can we access the form input value?
-        console.log(user)
         try {
-            let response = await fetch('https://striveschool-api.herokuapp.com/api/reservation', {
-                method: 'POST',
+            let response = await fetch('https://striveschool-api.herokuapp.com/api/profile/'+props.obj._id, {
+                method: 'PUT',
                 body: JSON.stringify(user),
                 headers: {
+                    "Authorization":
+                    "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MTY0MzRkZGE4OTBjYzAwMTVjZjA3ZjAiLCJpYXQiOjE2MzM5NTcwODUsImV4cCI6MTYzNTE2NjY4NX0.0KiKm3Nj5tYFKqs2AZK3KMWJf7ldhr1wmccH_VdoyjU",
                     'Content-type': 'application/json'
                 }
             })
             console.log(response)
-            if (response.ok) {
-                setUser({
-                    name: '',
-                    phone: '',
-                    numberOfPeople: 1,
-                    smoking: false,
-                    dateTime: '',
-                    specialRequests: '',
-                })
-            } else {
-                alert('Something went wrong :(')
-            }
+        
+            
         } catch (error) {
             console.log(error)
         }
     }
-    
 
     return (
         <>
@@ -64,7 +54,7 @@ const PopUp = (props) => {
             </Modal.Title>
             </Modal.Header>
             <Modal.Body>
-            <Form onSubmit={handleSubmit}>
+            <Form  >
                 <Form.Group>
                     <Form.Label>Change Name</Form.Label>
                     <Form.Control
@@ -80,7 +70,7 @@ const PopUp = (props) => {
                         type="text"
                         placeholder="Chnage your user Surname"
                         value={user.surname}
-                        onChange={e => handleInput('phone', e.target.value)}
+                        onChange={e => handleInput('surname', e.target.value)}
                     />
                 </Form.Group>
                 <Form.Group>
@@ -89,7 +79,7 @@ const PopUp = (props) => {
                         type="email"
                         placeholder="Change the email adress"
                         value={user.email}
-                        onChange={e => handleInput('phone', e.target.value)}
+                        onChange={e => handleInput('email', e.target.value)}
                     />
                 </Form.Group>
                 <Form.Group>
@@ -97,36 +87,47 @@ const PopUp = (props) => {
                     <Form.Control
                         as="textarea"
                         rows={5}
-                        onChange={e => handleInput('specialRequests', e.target.value)}
-                        value={user.specialRequests}
+                        onChange={e => handleInput('bio', e.target.value)}
+                        value={user.bio}
                         type="text"
-                        placeholder="Enter your special requests here" 
+                        placeholder="Enter your bio" 
                     />
                 </Form.Group>
                 <Form.Group>
-                    <Form.Label>Date and Time</Form.Label>
+                    <Form.Label>Change Title</Form.Label>
                     <Form.Control
-                        value={user.dateTime}
-                        onChange={e => handleInput('dateTime', e.target.value)}
-                        type="datetime-local" />
-                </Form.Group>
-                <Form.Group>
-                    <Form.Label>Any special request?</Form.Label>
-                    <Form.Control
-                        as="textarea"
-                        rows={5}
-                        onChange={e => handleInput('specialRequests', e.target.value)}
-                        value={user.specialRequests}
                         type="text"
-                        placeholder="Enter your special requests here" 
+                        placeholder="Change the title"
+                        value={user.title}
+                        onChange={e => handleInput('title', e.target.value)}
                     />
                 </Form.Group>
+                <Form.Group>
+                    <Form.Label>Change Area</Form.Label>
+                    <Form.Control
+                        type="text"
+                        placeholder="Change Area"
+                        value={user.area}
+                        onChange={e => handleInput('area', e.target.value)}
+                    />
+                </Form.Group>
+                <Form.Group>
+                    <Form.Label>Change Image</Form.Label>
+                    <Form.Control
+                        type="text"
+                        placeholder="Change Image"
+                        value={user.image}
+                        onChange={e => handleInput('image', e.target.value)}
+                    />
+                </Form.Group>
+                {/* <Button type="submit" onSubmit={handleSubmit} ></Button> */}
             </Form>
+                
 
             </Modal.Body>
             <Modal.Footer>
                 <Button variant="secondary" onClick={() => setLgShow(false)} >Close</Button>
-                <Button variant="primary">Save changes</Button>
+                <Button variant="primary" type="submit">Save changes</Button>
             </Modal.Footer>
         </Modal>
         </>
