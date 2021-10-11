@@ -1,9 +1,10 @@
-import { BrowserRouter as Router, Route } from "react-router-dom";
-import { useEffect, useState } from "react";
-import "bootstrap/dist/css/bootstrap.min.css";
-import NavBar from "./components/NavBar";
-import "./CssStyles/Jumbo.css";
-import Profile from "./views/Profile";
+import { BrowserRouter as Router , Route } from 'react-router-dom';
+import { useEffect , useState } from 'react';
+import 'bootstrap/dist/css/bootstrap.min.css';
+import NavBar from './components/NavBar';
+import './CssStyles/Jumbo.css';
+import Profile from './views/Profile';
+import Footer from './components/Footer'
 
 function App() {
   return (
@@ -18,6 +19,7 @@ function App() {
           <Profile />
         </Route>
       </Router>
+      <Footer/>
     </div>
   );
 }
