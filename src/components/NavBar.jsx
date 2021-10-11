@@ -21,7 +21,7 @@ const NavBar = () => {
           <Navbar.Brand href="#home">
             <img src={logo} style={{ width: "36px" }}></img>
           </Navbar.Brand>
-          <i className="bi bi-search  "></i>
+          <i className="bi bi-search  mr-2"></i>
           <Form inline className="border-non">
             <FormControl type="text" placeholder="Search" className="mr-sm-2" />
           </Form>
