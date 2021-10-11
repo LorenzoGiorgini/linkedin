@@ -10,12 +10,11 @@ h1 , h2 , h3 {
     margin: 0;
 }
 
-.color {
-    background: white;
-}
-
 .jumbo-container {
     color: white;
+    background: white;
+    border-radius: 0.8rem;
+    box-shadow: 0px 0px 0px 1px rgba(0, 0, 0, 0.08)!important;
 }
 
 .padding-jumbo {
@@ -32,6 +31,8 @@ h1 , h2 , h3 {
     width: 100%;
     height: 25vh;
     color: white;
+    border-top-left-radius: 0.8rem;
+    border-top-right-radius: 0.8rem;
 }
 
 .img-profile {
@@ -39,7 +40,9 @@ h1 , h2 , h3 {
     height: 152px;
     border-radius: 50%;
     object-fit: cover;
-    margin-top: -50px;
+    margin-top: -140px;
+    
+    border: 2px solid black;
 }
 
 .image-container {

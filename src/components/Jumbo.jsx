@@ -7,7 +7,7 @@ const Jumbo = () => {
             <div className="img-bck-container"><div className="img-background"></div></div>
             <div className="padding-jumbo">
                 <div className="image-container">
-                    <div className="img-profile"><img className="img-profile" src={pic} /></div>
+                    <div className="img-profile-container"><img className="img-profile" src={pic} /></div>
                     <div>sada</div>
                 </div>
                 <Row>

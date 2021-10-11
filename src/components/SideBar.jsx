@@ -1,7 +1,7 @@
 import { useEffect , useState } from 'react'
 import { Col, Row, Container, Button, Image } from "react-bootstrap";
 import Advertisement from "../assets/advertisement.jpg";
-// import "./Sidebar.css";
+import "../CssStyles/SideBar.css"
 
 // fontawesome imports
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
@@ -101,7 +101,7 @@ const Sidebar = () => {
                       <div className="d-flex">
                         {/* Images */}
                         <Image
-                          className="w-25 img-circle profile-img mt-1"
+                          className="img-circle profile-img mt-1"
                           src={profile.image}
                           alt="Linkedin Member"
                           fluid

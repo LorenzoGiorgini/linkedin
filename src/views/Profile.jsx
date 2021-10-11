@@ -7,13 +7,14 @@ import SideBar from "../components/SideBar"
 
 
 const Profile = () => (
+
     <Container>
         <Row>
-            <Col md={8} className="color">
+            <Col md={8} style={{height: "100%"}}>
                 <Jumbo />
             </Col>
             
-            <Col md={4} className="color">
+            <Col md={4}>
                 <SideBar />
             </Col>
         </Row>
