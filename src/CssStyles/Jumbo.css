@@ -156,9 +156,6 @@ h1 , h2 , h3 {
     opacity: 0.8;
 }
 
-.pencil:hover {
-    width: 30px;
-    height: 30px;
-    border-radius: 50%;
-    opacity: 0.7;
+.modal-popup {
+    
 }
