@@ -6,21 +6,18 @@ import './CssStyles/Jumbo.css';
 import Profile from './views/Profile';
 import Footer from './components/Footer'
 
-
 function App() {
-
-
   return (
     <div>
       <Router>
-      <NavBar/>
-      <Route path="/" exact/>
-      <Route path="/profile/" exact>
-        <Profile/>
-      </Route>
-      <Route path="/profile/:me">
-        <Profile />
-      </Route>
+        <NavBar />
+        <Route path="/" exact />
+        <Route path="/profile/" exact>
+          <Profile />
+        </Route>
+        <Route path="/profile/:id">
+          <Profile />
+        </Route>
       </Router>
       <Footer/>
     </div>
@@ -28,4 +25,3 @@ function App() {
 }
 
 export default App;
-

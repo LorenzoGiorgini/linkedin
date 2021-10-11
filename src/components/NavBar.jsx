@@ -71,7 +71,7 @@ const NavBar = () => {
                     <p>username</p>
                   </div>
                 </div>
-                <Link to="/profile/lorenzogiorgini">
+                <Link to="/profile/me">
                   <Button href="#action/3.1" variant="outline-primary" block>View Profile</Button>
                 </Link>
               </NavDropdown.Item>
