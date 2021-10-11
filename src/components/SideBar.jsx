@@ -6,8 +6,9 @@ import "../CssStyles/SideBar.css"
 // fontawesome imports
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faGlobe, faQuestionCircle } from "@fortawesome/free-solid-svg-icons";
+import { Link } from 'react-router-dom';
 
-const Sidebar = () => {
+const Sidebar = (props) => {
 
   const [ profiles , setProfiles ] = useState([])
 
@@ -26,7 +27,6 @@ const Sidebar = () => {
       let result = console.log("This is the fetched data from the API", data);
 
       setProfiles(data.slice(0, 5));
-      console.log(profiles)
     } catch (error) {
       console.log(error, "Error");
     }
@@ -110,9 +110,11 @@ const Sidebar = () => {
 
                         {/* Name & Surname */}
                         <div className="profile-details ml-4 mb-2">
-                          <div className="profile-name">
-                            {profile.name} {profile.surname}
-                          </div>
+                          <Link to={"/profile/" + profile._id}>
+                            <div className="profile-name" onClick={() => { props.setMainUser(profile._id)}}>
+                              {profile.name} {profile.surname}
+                            </div>
+                          </Link>
 
                           {/* Title */}
                           <div className="profile-title">{profile.title}</div>

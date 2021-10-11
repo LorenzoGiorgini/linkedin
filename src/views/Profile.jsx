@@ -9,11 +9,12 @@ import { useEffect , useState } from 'react';
 const Profile = () => {
 
     const [ user , setFetch ] = useState([])
+    const [ mainUser , setMainUser] = useState("me")
 
     const fetchUser = async () => {
         try {
             let response = await fetch(
-                "https://striveschool-api.herokuapp.com/api/profile/me",
+                "https://striveschool-api.herokuapp.com/api/profile/" + mainUser,
                 {
                   headers: {
                     Authorization:
@@ -33,7 +34,7 @@ const Profile = () => {
 
     useEffect(() => {
         fetchUser()
-    }, [])
+    }, [mainUser])
 
     return(
         <Container style={{marginTop : "100px"}}>
@@ -43,7 +44,7 @@ const Profile = () => {
                 </Col>
                 
                 <Col md={4}>
-                    <SideBar />
+                    <SideBar mainUser={mainUser} setMainUser={setMainUser}/>
                 </Col>
             </Row>
         </Container>
