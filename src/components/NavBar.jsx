@@ -68,7 +68,7 @@ const NavBar = () => {
                     <p>username</p>
                   </div>
                 </div>
-                <Button href="#action/3.1">View Profile</Button>
+                <Button href="#action/3.1" variant="outline-primary" block>View Profile</Button>
               </NavDropdown.Item>
               <NavDropdown.Item href="#action/3.2">
                 Another action
