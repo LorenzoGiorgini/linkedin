@@ -1,4 +1,5 @@
 import { Component } from "react";
+import { useState } from 'react'
 import { Col, Row, Container, Button, Image } from "react-bootstrap";
 import Advertisement from "../assets/advertisement.jpg";
 // import "./Sidebar.css";
@@ -27,9 +28,9 @@ class Sidebar extends Component {
       let result = console.log("This is the fetched data from the API", data);
 
       this.setState({
-        profiles: data.slice("0, 6"),
+        profiles: data.slice("0, 1"),
       });
-      console.log("Profile states", this.state.profiles);
+      console.log("Profile states array", this.state.profiles);
     } catch (error) {
       console.log(error, "Error");
     }
