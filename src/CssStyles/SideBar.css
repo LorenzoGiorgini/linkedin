@@ -34,9 +34,7 @@
   }
 
 .sidebar-container{
-    color: white;
-    background: white;
-    border-radius: 0.8rem;
+    border-radius: 0.8rem !important;
     box-shadow: 0px 0px 0px 1px rgba(0, 0, 0, 0.08)!important;
 }
   
