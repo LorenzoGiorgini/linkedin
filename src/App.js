@@ -1,20 +1,26 @@
-import { BrowserRouter as Router , Route , Switch } from 'react-router-dom';
+import { BrowserRouter as Router , Route } from 'react-router-dom';
 import { useEffect , useState } from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import NavBar from './components/NavBar';
 import './CssStyles/Jumbo.css';
 import Profile from './views/Profile';
-import SideBar from './components/SideBar'
 
 
 function App() {
+
+
   return (
     <div>
-      
+      <Router>
       <NavBar/>
-      <Profile/>
+      <Route path="/" exact/>
+      <Route path="/profile/lorenzogiorgini"  exact>
+        <Profile/>
+      </Route>
+      </Router>
     </div>
   );
 }
 
 export default App;
+

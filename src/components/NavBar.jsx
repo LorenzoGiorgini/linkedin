@@ -11,11 +11,12 @@ import {
 import "@fortawesome/fontawesome-free/css/all.css";
 import "bootstrap-icons/font/bootstrap-icons.css";
 import logo from "../assets/linkedin.png";
+import { Link } from "react-router-dom";
 
 const NavBar = () => {
   return (
-    <Container>
       <Navbar bg="light" expand="lg" className="row" fixed="top">
+        <Container>
         <Col md={6} className="d-flex align-items-center">
           <Navbar.Brand href="#home">
             <img src={logo} style={{ width: "36px" }}></img>
@@ -28,12 +29,14 @@ const NavBar = () => {
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
         <Navbar.Collapse id="basic-navbar-nav">
           <Nav className="mr-auto">
+            <Link to="/">
             <Nav.Link
               href="#home"
               className="d-flex flex-column align-items-center"
             >
               <i class="fas fa-home"></i>Home
             </Nav.Link>
+            </Link>
             <Nav.Link
               href="#link"
               className="d-flex flex-column align-items-center"
@@ -68,7 +71,9 @@ const NavBar = () => {
                     <p>username</p>
                   </div>
                 </div>
-                <Button href="#action/3.1" variant="outline-primary" block>View Profile</Button>
+                <Link to="/profile/lorenzogiorgini">
+                  <Button href="#action/3.1" variant="outline-primary" block>View Profile</Button>
+                </Link>
               </NavDropdown.Item>
               <NavDropdown.Item href="#action/3.2">
                 Another action
@@ -94,8 +99,8 @@ const NavBar = () => {
             </NavDropdown>
           </Nav>
         </Navbar.Collapse>
+        </Container>
       </Navbar>
-    </Container>
   );
 };
 
