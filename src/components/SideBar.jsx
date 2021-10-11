@@ -32,9 +32,9 @@ const Sidebar = () => {
     }
   }
 
-    useEffect = (() => {
-      return fetchData()
-    } , [])
+    useEffect (() => {
+      fetchData()
+    }, [])
 
     return (
       <>
@@ -96,7 +96,7 @@ const Sidebar = () => {
                 <span className="pl-3 pb-3 text">People you may know</span>
                 <div className="pl-3 pt-2">
                   {/* Loading profiles from fetched data */}
-                  {this.state.profiles.map((profile) => (
+                  {profiles.map((profile) => (
                     <div key={profile._id}>
                       <div className="d-flex">
                         {/* Images */}
