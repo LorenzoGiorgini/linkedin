@@ -40,7 +40,7 @@ const Profile = () => {
         <Container style={{marginTop : "100px"}}>
             <Row>
                 <Col md={8} style={{height: "100%"}}>
-                    <Jumbo  user={user}/>
+                    <Jumbo mainUser={mainUser} user={user}/>
                 </Col>
                 
                 <Col md={4}>
