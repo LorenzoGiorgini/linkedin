@@ -25,9 +25,8 @@ const Sidebar = (props) => {
           },
         }
       );
+      
       let data = await response.json();
-      let result = console.log("This is the fetched data from the API", data);
-
       setProfiles(data.slice(0, 5));
     } catch (error) {
       console.log(error, "Error");

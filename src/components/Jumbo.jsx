@@ -4,7 +4,7 @@ import PopUp from "./PopUp";
 import { useParams } from "react-router";
 
 const Jumbo = (props) => {
-  
+
   const params = useParams();
 
   return (

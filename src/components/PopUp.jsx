@@ -5,12 +5,12 @@ const PopUp = (props) => {
 
     const [ lgShow, setLgShow ] = useState(false);
     
-    
-    const [user, setUser] = useState(props.obj)
+    const [oldUser, setOldUser] = useState({...props.obj})
+
 
     const handleInput = (propertyName, value) => {
-        setUser({
-            ...user,
+        setOldUser({
+            ...oldUser,
             [propertyName]: value
         })
     }
@@ -19,18 +19,16 @@ const PopUp = (props) => {
         e.preventDefault()
         // now how can we access the form input value?
         try {
-            let response = await fetch('https://striveschool-api.herokuapp.com/api/profile/'+props.obj._id, {
+            let response = await fetch('https://striveschool-api.herokuapp.com/api/profile/'+ props.obj._id, {
                 method: 'PUT',
-                body: JSON.stringify(user),
+                body: JSON.stringify(oldUser),
                 headers: {
                     "Authorization":
                     "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MTY0MzRkZGE4OTBjYzAwMTVjZjA3ZjAiLCJpYXQiOjE2MzM5NTcwODUsImV4cCI6MTYzNTE2NjY4NX0.0KiKm3Nj5tYFKqs2AZK3KMWJf7ldhr1wmccH_VdoyjU",
                     'Content-type': 'application/json'
                 }
             })
-            console.log(response)
         
-            
         } catch (error) {
             console.log(error)
         }
@@ -59,7 +57,7 @@ const PopUp = (props) => {
                     <Form.Label>Change Name</Form.Label>
                     <Form.Control
                         onChange={e => handleInput('name', e.target.value)}
-                        value={user.name}
+                        value={oldUser.name}
                         type="text"
                         placeholder="Enter your name here"
                     />
@@ -69,7 +67,7 @@ const PopUp = (props) => {
                     <Form.Control
                         type="text"
                         placeholder="Chnage your user Surname"
-                        value={user.surname}
+                        value={oldUser.surname}
                         onChange={e => handleInput('surname', e.target.value)}
                     />
                 </Form.Group>
@@ -78,7 +76,7 @@ const PopUp = (props) => {
                     <Form.Control
                         type="email"
                         placeholder="Change the email adress"
-                        value={user.email}
+                        value={oldUser.email}
                         onChange={e => handleInput('email', e.target.value)}
                     />
                 </Form.Group>
@@ -88,7 +86,7 @@ const PopUp = (props) => {
                         as="textarea"
                         rows={5}
                         onChange={e => handleInput('bio', e.target.value)}
-                        value={user.bio}
+                        value={oldUser.bio}
                         type="text"
                         placeholder="Enter your bio" 
                     />
@@ -98,7 +96,7 @@ const PopUp = (props) => {
                     <Form.Control
                         type="text"
                         placeholder="Change the title"
-                        value={user.title}
+                        value={oldUser.title}
                         onChange={e => handleInput('title', e.target.value)}
                     />
                 </Form.Group>
@@ -107,7 +105,7 @@ const PopUp = (props) => {
                     <Form.Control
                         type="text"
                         placeholder="Change Area"
-                        value={user.area}
+                        value={oldUser.area}
                         onChange={e => handleInput('area', e.target.value)}
                     />
                 </Form.Group>
@@ -116,18 +114,17 @@ const PopUp = (props) => {
                     <Form.Control
                         type="text"
                         placeholder="Change Image"
-                        value={user.image}
+                        value={oldUser.image}
                         onChange={e => handleInput('image', e.target.value)}
                     />
                 </Form.Group>
-                {/* <Button type="submit" onSubmit={handleSubmit} ></Button> */}
             </Form>
                 
 
             </Modal.Body>
             <Modal.Footer>
                 <Button variant="secondary" onClick={() => setLgShow(false)} >Close</Button>
-                <Button variant="primary" type="submit">Save changes</Button>
+                <Button variant="primary" type="submit" onClick={handleSubmit}>Save changes</Button>
             </Modal.Footer>
         </Modal>
         </>

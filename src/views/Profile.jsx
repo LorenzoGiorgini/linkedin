@@ -5,8 +5,10 @@ import { useEffect, useState } from "react";
 import { useParams } from "react-router";
 
 const Profile = () => {
+
   const params = useParams();
-  const [user, setFetch] = useState([]);
+  
+  const [user, setUser] = useState([]);
  
 
   const fetchUser = async (id) => {
@@ -21,23 +23,15 @@ const Profile = () => {
         }
       );
       let data = await response.json();
-      if (response.ok) {
-        setFetch(data);
-      }
+      setUser(data);
     } catch (error) {
       console.log(error);
     }
   };
-
-  useEffect(() => {
-    if (params.id === "me") {
-    
-      fetchUser("me");
-    } else {
-    
-      fetchUser(params.id);
-    }
-  }, [params]);
+  
+  useEffect(async() => {
+    await fetchUser(params.id)
+  }, [params.id]);
 
   return (
     <Container style={{ marginTop: "100px" }}>

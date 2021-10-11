@@ -12,9 +12,6 @@ function App() {
       <Router>
         <NavBar />
         <Route path="/" exact />
-        <Route path="/profile/" exact>
-          <Profile />
-        </Route>
         <Route path="/profile/:id">
           <Profile />
         </Route>
