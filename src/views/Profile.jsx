@@ -2,15 +2,14 @@ import { Container, Row, Col } from "react-bootstrap";
 import Jumbo from "../components/Jumbo";
 import SideBar from "../components/SideBar";
 import { useEffect, useState } from "react";
-import { useParams } from "react-router";
+import { useParams } from "react-router-dom";
 import ExperienceModal from "../components/ExperienceModal";
+import ExperienceList from "../components/ExperienceList";
 
 const Profile = () => {
-
   const params = useParams();
-  
+
   const [user, setUser] = useState(null);
- 
 
   const fetchUser = async (id) => {
     try {
@@ -29,20 +28,25 @@ const Profile = () => {
       console.log(error);
     }
   };
-  
-  useEffect(async() => {
-    await fetchUser(params.id)
+
+  useEffect(() => {
+    fetchUser(params.id);
   }, [params]);
+
+  useEffect(() => {
+    fetchUser(params.id);
+  }, []);
 
   return (
     <Container style={{ marginTop: "100px" }}>
       <Row>
         <Col md={8} style={{ height: "100%" }}>
-          {user && <Jumbo  user={user} />}
+          {user && <Jumbo user={user} />}
+          {user && <ExperienceList user={user} />}
         </Col>
 
         <Col md={4}>
-          <SideBar  />
+          <SideBar />
         </Col>
       </Row>
     </Container>
