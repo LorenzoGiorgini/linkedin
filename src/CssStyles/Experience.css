@@ -1,0 +1,22 @@
+#experience-single-row > div > img {
+  width: 60px;
+}
+
+#experience-single-row > div > p {
+  padding: 0px;
+  margin: 0px;
+  font-size: 12px;
+}
+
+#experience-single-row > div > p:nth-child(1) {
+  font-size: 14px;
+  font-weight: 500;
+}
+#experience-single-row > div > p:nth-child(3),
+#experience-single-row > div > p:nth-child(4) {
+  color: rgb(124, 124, 124);
+}
+
+#experience-single-row > div > p:nth-child(5) {
+  margin-top: 5px;
+}

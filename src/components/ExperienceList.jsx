@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import { Card, Row, Col, Image } from "react-bootstrap";
+import { Plus } from "react-bootstrap-icons";
 import SingleExperience from "./SingleExperience";
 
 class ExperienceList extends Component {
@@ -10,14 +11,13 @@ class ExperienceList extends Component {
   componentDidMount = async () => {
     let userId = "616434dda890cc0015cf07f0";
     const token =
-      "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MTY0MzRkZGE4OTBjYzAwMTVjZjA3ZjAiLCJpYXQiOjE2MzM5NTcwODUsImV4cCI6MTYzNTE2NjY4NX0.0KiKm3Nj5tYFKqs2AZK3KMWJf7ldhr1wmccH_VdoyjU";
+      "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MTY0MzRkZGE4OTBjYzAwMTVjZjA3ZjAiLCJpYXQiOjE2MzM5NTcwODUsImV4cCI6MTYzNTE2NjY4NX0.0KiKm3Nj5tYFKqs2AZK3KMWJf7ldhr1wmccH_VdoyjU";
     const endpointMyProfile = `https://striveschool-api.herokuapp.com/api/profile/${userId}/experiences`;
 
     try {
       let fetchData = await fetch(endpointMyProfile, {
         headers: {
-          Authorization:
-            "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MTY0MzRkZGE4OTBjYzAwMTVjZjA3ZjAiLCJpYXQiOjE2MzM5NTcwODUsImV4cCI6MTYzNTE2NjY4NX0.0KiKm3Nj5tYFKqs2AZK3KMWJf7ldhr1wmccH_VdoyjU"
+          Authorization: token,
         },
       });
       let myExperienceData = await fetchData.json();
@@ -33,14 +33,21 @@ class ExperienceList extends Component {
   render() {
     const { experience } = this.state;
     return (
-      <Card>
+      <Card >
         <Card.Title>
           <span></span>
+          <Plus/>
         </Card.Title>
-        <Card.Body>
+        <Card.Body >
           {experience.map((element) => (
             <Col>
-              <SingleExperience />
+              <SingleExperience
+                role={element.role}
+                location={element.area}
+                date={element.startDate}
+                company={element.company}
+                desc={element.description}
+              />
             </Col>
           ))}
         </Card.Body>
