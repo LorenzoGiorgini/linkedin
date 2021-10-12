@@ -1,38 +1,27 @@
 import { useState , useEffect } from "react";
 import ExperiencePopUp from "./ExperiencePopUp"
+import { useParams } from "react-router";
 
 const SingleExperience = (props) => {
 
+  const params = useParams();
 
 
-  return props.setSelectedJob === true ? 
+
   
-  (
-    
-  <>
 
-    <ExperiencePopUp pressed={props.selectedJob} elementId={props.id} />
-    <div>
-      <h1>dsdasda</h1>
-      <button onClick={props.setSelectedJob(true)}/>
-    </div>
-  
-  </>
+  const [pressed, setPressed] = useState(false)
 
-  ) 
-  
-  
-  : (
-
-  <>
+  return (
+     <>
 
     <div>
       <h1>dsdasda</h1>
-      <button onClick={props.setSelectedJob(true)}/>
+      {params.id === "me" &&<button onClick={ () => setPressed(true)}/>}
     </div>
-
+    {pressed === true && <ExperiencePopUp pressed={pressed} setPressed={setPressed} elementId={props.id} />}
+  
   </>
-
   )
 
 }

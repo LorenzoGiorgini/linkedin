@@ -1,16 +1,10 @@
 import { Button, Modal , Form } from "react-bootstrap"
-import { useState } from "react"
+import { useState, useEffect } from "react"
 
 const ExperiencePopUp = (props) => {
 
-    const [userExp , setUserExp] = useState({
-        role: "",
-        company: "",
-        startDate: "",
-        endDate: "",
-        description: "",
-        area: ""
-    });
+    const [closePop, setclosePop] = useState(props.pressed)
+    const []
 
     const handleInput = (propertyName, value) => {
         setUserExp({
@@ -24,13 +18,35 @@ const ExperiencePopUp = (props) => {
         
     }
 
+    const fetchSelectedJob = async () => {
+        try {
+            let response = await fetch(`https://striveschool-api.herokuapp.com/api/profile/me/experiences/${props.elementId}`,
+            {
+                method: "GET",
+                headers: {
+                  Authorization:
+                    "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MTY0MzRkZGE4OTBjYzAwMTVjZjA3ZjAiLCJpYXQiOjE2MzM5NTcwODUsImV4cCI6MTYzNTE2NjY4NX0.0KiKm3Nj5tYFKqs2AZK3KMWJf7ldhr1wmccH_VdoyjU"
+                },
+              }
+
+              )
+              let data = await response.jsom()
+        } catch (error) {
+            console.log(error)
+        }
+    }
+
+   useEffect(() => {
+       fetchSelectedJob()
+   },[])
+
 
     return (
         <>
             <Modal
                 size="lg"
                 show={props.pressed}
-                onHide={() => props.pressed(false)}
+                onHide={() => props.setPressed(false)}
                 aria-labelledby="example-modal-sizes-title-lg"
             >
                 <Modal.Header closeButton>
