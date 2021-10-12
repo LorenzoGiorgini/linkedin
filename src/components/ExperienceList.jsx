@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import { Card, Row, Col, Image } from "react-bootstrap";
+import SingleExperience from "./SingleExperience";
 
 class ExperienceList extends Component {
   state = {
@@ -15,8 +16,8 @@ class ExperienceList extends Component {
     try {
       let fetchData = await fetch(endpointMyProfile, {
         headers: {
-          Authorization: token,
-          "Content-Type": "application/json",
+          Authorization:
+            "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MTY0MzRkZGE4OTBjYzAwMTVjZjA3ZjAiLCJpYXQiOjE2MzM5NTcwODUsImV4cCI6MTYzNTE2NjY4NX0.0KiKm3Nj5tYFKqs2AZK3KMWJf7ldhr1wmccH_VdoyjU"
         },
       });
       let myExperienceData = await fetchData.json();
@@ -36,7 +37,13 @@ class ExperienceList extends Component {
         <Card.Title>
           <span></span>
         </Card.Title>
-        <Card.Body></Card.Body>
+        <Card.Body>
+          {experience.map((element) => (
+            <Col>
+              <SingleExperience />
+            </Col>
+          ))}
+        </Card.Body>
       </Card>
     );
   }
