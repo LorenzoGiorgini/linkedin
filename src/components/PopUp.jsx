@@ -48,25 +48,25 @@ const PopUp = (props) => {
         >
             <Modal.Header closeButton>
             <Modal.Title id="example-modal-sizes-title-lg">
-                Large Modal
+                Edit intro
             </Modal.Title>
             </Modal.Header>
             <Modal.Body>
             <Form  >
                 <Form.Group>
-                    <Form.Label>Change Name</Form.Label>
+                    <Form.Label>First Name *</Form.Label>
                     <Form.Control
                         onChange={e => handleInput('name', e.target.value)}
                         value={oldUser.name}
                         type="text"
-                        placeholder="Enter your name here"
+                        placeholder="Enter your name"
                     />
                 </Form.Group>
                 <Form.Group>
-                    <Form.Label>Change Surname</Form.Label>
+                    <Form.Label>Last Name *</Form.Label>
                     <Form.Control
                         type="text"
-                        placeholder="Chnage your user Surname"
+                        placeholder="Enter your last name"
                         value={oldUser.surname}
                         onChange={e => handleInput('surname', e.target.value)}
                     />
@@ -92,19 +92,19 @@ const PopUp = (props) => {
                     />
                 </Form.Group>
                 <Form.Group>
-                    <Form.Label>Change Title</Form.Label>
+                    <Form.Label>Headline *</Form.Label>
                     <Form.Control
                         type="text"
-                        placeholder="Change the title"
+                        placeholder="Change the Headline"
                         value={oldUser.title}
                         onChange={e => handleInput('title', e.target.value)}
                     />
                 </Form.Group>
                 <Form.Group>
-                    <Form.Label>Change Area</Form.Label>
+                    <Form.Label>Country/Region *</Form.Label>
                     <Form.Control
                         type="text"
-                        placeholder="Change Area"
+                        placeholder="Country/Region"
                         value={oldUser.area}
                         onChange={e => handleInput('area', e.target.value)}
                     />
@@ -123,7 +123,6 @@ const PopUp = (props) => {
 
             </Modal.Body>
             <Modal.Footer>
-                <Button variant="secondary" onClick={() => setLgShow(false)} >Close</Button>
                 <Button variant="primary" type="submit" onClick={handleSubmit}>Save changes</Button>
             </Modal.Footer>
         </Modal>
