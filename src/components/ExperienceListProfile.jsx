@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import { Card, Row, Col, Image } from "react-bootstrap";
 import { Plus } from "react-bootstrap-icons";
-import SingleExperience from "./SingleExperience";
+import SingleExperience from "./SingleExperienceProfile";
 
 class ExperienceList extends Component {
   state = {
@@ -33,10 +33,12 @@ class ExperienceList extends Component {
   render() {
     const { experience } = this.state;
     return (
-      <Card >
+        <Row>
+            <Col md={8}>
+            <Card >
         <Card.Title>
           <span></span>
-          <Plus/>
+          <Plus id="plus-icon"/>
         </Card.Title>
         <Card.Body >
           {experience.map((element) => (
@@ -52,6 +54,9 @@ class ExperienceList extends Component {
           ))}
         </Card.Body>
       </Card>
+            </Col>
+        </Row>
+      
     );
   }
 }
