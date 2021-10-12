@@ -43,7 +43,7 @@ const Sidebar = (props) => {
         {/* Main section of SideBar */}
         <Row>
           {/*  Side bar start */}
-          <Col className="sidebar-container">
+          <Col xs={12} className="sidebar-container p-0">
             {/* edit-public-language section */}
             <div className="edit-public-language-container pb-1">
               {/* edit public profile */}
@@ -51,6 +51,18 @@ const Sidebar = (props) => {
                 <span className="edit-text ml-3">
                   {" "}
                   Edit Public profile and url
+                </span>
+                <FontAwesomeIcon
+                  className="button-icon question-icon ml-auto mr-3"
+                  icon={faQuestionCircle}
+                />
+                <div>{""}</div>
+              </div>
+              <hr/>
+              <div className="d-flex justify-content-between m-2">
+                <span className="edit-text ml-3">
+                  {" "}
+                  Add profile in another language
                 </span>
                 <FontAwesomeIcon
                   className="button-icon question-icon ml-auto mr-3"
@@ -94,7 +106,7 @@ const Sidebar = (props) => {
 
             {/* People you may know */}
             <div className="people pt-3 ">
-              <span className="pl-3 pb-3 text">People you may know</span>
+            <span className="pl-3 pb-3 text">People you may know</span>
               <div className="pl-3 pt-2">
                 {/* Loading profiles from fetched data */}
                 {profiles.map((profile) => (
