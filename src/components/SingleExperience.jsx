@@ -43,17 +43,3 @@ const SingleExperience = (props) => {
 };
 
 export default SingleExperience;
-
-
-
-{/* <div>
-        <h1>dsdasda</h1>
-        {params.id === "me" && <button onClick={() => setPressed(true)} />}
-      </div>
-      {pressed === true && (
-        <ExperiencePopUp
-          pressed={pressed}
-          setPressed={setPressed}
-          elementId={props.id}
-        />
-      )} */}

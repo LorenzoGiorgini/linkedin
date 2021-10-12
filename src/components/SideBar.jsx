@@ -95,14 +95,15 @@ const Sidebar = (props) => {
                 </div> */}
             </div>
 
-            {/* Advertisement */}
-            <div className="advertisement">
-              <Image
-                className="pt-2 pb-2 pr-3 m-2 w-45"
-                src={Advertisement}
-                fluid
-              />
+            <div className="edit-public-language-container d-flex justify-content-center p-0">
+              <div className="advertisement">
+                <Image
+                  src={Advertisement}
+                  fluid
+                />
+              </div>
             </div>
+            
 
             {/* People you may know */}
             <div className="people pt-3 ">
