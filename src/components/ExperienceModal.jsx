@@ -22,6 +22,7 @@ const ExperienceModal = (props) => {
 
     const handleSubmit = async (e) => {
         e.preventDefault()
+        console.log(userExp)
         
         try {
             let response = await fetch('https://striveschool-api.herokuapp.com/api/profile/616434dda890cc0015cf07f0/experiences', {
@@ -56,7 +57,7 @@ const ExperienceModal = (props) => {
                 <Modal.Body>
                 <Form >
                     <Form.Group>
-                        <Form.Label>First Name *</Form.Label>
+                        <Form.Label>Title *</Form.Label>
                         <Form.Control
                             onChange={e => handleInput('role', e.target.value)}
                             value={userExp.role}
@@ -65,7 +66,7 @@ const ExperienceModal = (props) => {
                         />
                     </Form.Group>
                     <Form.Group>
-                        <Form.Label>Last Name *</Form.Label>
+                        <Form.Label>Company *</Form.Label>
                         <Form.Control
                             type="text"
                             placeholder="Enter your last name"
@@ -74,30 +75,32 @@ const ExperienceModal = (props) => {
                         />
                     </Form.Group>
                     <Form.Group>
-                        <Form.Label>Change Email</Form.Label>
+                        <Form.Label>Start Date</Form.Label>
                         <Form.Control
-                            type="email"
-                            placeholder="Change the email adress"
+                            type="date"
+                            placeholder="yyyy/mm/dd"
                             value={userExp.startDate}
                             onChange={e => handleInput('startDate', e.target.value)}
+
                         />
                     </Form.Group>
                     <Form.Group>
-                        <Form.Label>Change Bio</Form.Label>
+                        <Form.Label>End Date</Form.Label>
                         <Form.Control
+                            type="date"
+                            placeholder="yyyy/mm/dd"
+                            value={userExp.endDate}
+                            onChange={e => handleInput('endDate', e.target.value)}
+
+                        />
+                    </Form.Group>
+                    <Form.Group>
+                        <Form.Label>Description</Form.Label>
+                        <Form.Control
+                            type="text"
                             as="textarea"
                             rows={5}
-                            onChange={e => handleInput('endDate', e.target.value)}
-                            value={userExp.endDate}
-                            type="text"
-                            placeholder="Enter your bio" 
-                        />
-                    </Form.Group>
-                    <Form.Group>
-                        <Form.Label>Headline *</Form.Label>
-                        <Form.Control
-                            type="text"
-                            placeholder="Change the Headline"
+                            placeholder="Change the description"
                             value={userExp.description}
                             onChange={e => handleInput('description', e.target.value)}
                         />
@@ -112,15 +115,7 @@ const ExperienceModal = (props) => {
                             onChange={e => handleInput('area', e.target.value)}
                         />
                     </Form.Group>
-                    <Form.Group>
-                        <Form.Label>Change Image</Form.Label>
-                        <Form.Control
-                            type="text"
-                            placeholder="Change Image"
-                            value={userExp.area}
-                            onChange={e => handleInput('area', e.target.value)}
-                        />
-                    </Form.Group>
+                    
                 </Form>
                     
 
