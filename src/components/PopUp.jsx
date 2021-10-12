@@ -4,6 +4,7 @@ import { useState , useEffect } from "react";
 const PopUp = (props) => {
 
     const [ lgShow, setLgShow ] = useState(false);
+    const [ experience , setExperience] = useState(false);
     
     const [oldUser, setOldUser] = useState({...props.obj})
 
@@ -13,13 +14,14 @@ const PopUp = (props) => {
             ...oldUser,
             [propertyName]: value
         })
+        console.log(oldUser)
     }
 
     const handleSubmit = async (e) => {
         e.preventDefault()
         // now how can we access the form input value?
         try {
-            let response = await fetch('https://striveschool-api.herokuapp.com/api/profile/'+ props.obj._id, {
+            let response = await fetch('https://striveschool-api.herokuapp.com/api/profile/', {
                 method: 'PUT',
                 body: JSON.stringify(oldUser),
                 headers: {
@@ -100,6 +102,11 @@ const PopUp = (props) => {
                         onChange={e => handleInput('title', e.target.value)}
                     />
                 </Form.Group>
+                    
+                <Form.Group>
+                    <Form.Label>+ Current Position</Form.Label>
+                </Form.Group>
+
                 <Form.Group>
                     <Form.Label>Country/Region *</Form.Label>
                     <Form.Control

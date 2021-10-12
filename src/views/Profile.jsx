@@ -8,7 +8,7 @@ const Profile = () => {
 
   const params = useParams();
   
-  const [user, setUser] = useState([]);
+  const [user, setUser] = useState(null);
  
 
   const fetchUser = async (id) => {
@@ -31,13 +31,13 @@ const Profile = () => {
   
   useEffect(async() => {
     await fetchUser(params.id)
-  }, [params.id]);
+  }, [params]);
 
   return (
     <Container style={{ marginTop: "100px" }}>
       <Row>
         <Col md={8} style={{ height: "100%" }}>
-          <Jumbo  user={user} />
+          {user && <Jumbo  user={user} />}
         </Col>
 
         <Col md={4}>
