@@ -156,6 +156,16 @@ h1 , h2 , h3 {
     opacity: 0.8;
 }
 
-.modal-popup {
-    
+.pencil {
+    width: 35px;
+    height: 35px;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.pencil:hover {
+    background-color: rgba(0, 0, 0, 0.2);
+    opacity: 1;
 }

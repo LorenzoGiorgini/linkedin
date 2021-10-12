@@ -1,11 +1,15 @@
 import { useState, useEffect } from "react";
 import { Card, Row, Col, Image } from "react-bootstrap";
 import SingleExperience from "./SingleExperience";
+import { useParams } from "react-router";
 
 import { Plus } from "react-bootstrap-icons";
 
 const ExperienceList = (props) => {
+
   const [getExperience, setGetExperience] = useState([]);
+
+  const params = useParams();
 
   const fetchUserExp = async () => {
     try {
@@ -36,13 +40,11 @@ const ExperienceList = (props) => {
       <>
         <Row md={8} className="experience-list-con">
           <Col>
-            <Card>
-              <Card.Title>
-                <span></span>
-                <Plus id="plus-icon" />
-              </Card.Title>
-              <Card.Body>
-                {getExperience.map((element) => (
+          <div className="d-flex align-items-center justify-content-between">
+          <h2 style={{fontSize: "20px"}}>Experience</h2>
+          {params.id === "me" && <Plus id="plus-icon" style={{fontSize:"35px"}} />}
+          </div>
+          {getExperience.map((element) => (
                   <Col>
                     <SingleExperience
                       role={element.role}
@@ -54,8 +56,6 @@ const ExperienceList = (props) => {
                     />
                   </Col>
                 ))}
-              </Card.Body>
-            </Card>
           </Col>
         </Row>
       </>
