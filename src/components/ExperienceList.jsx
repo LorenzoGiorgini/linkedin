@@ -8,7 +8,7 @@ const ExperienceList = (props) => {
   }; */
 
   const [ getExperience , setGetExperience ] = useState([])
-  const [ selectedJob , setSelectedJob ] = useState(null)
+  
 
 
   const fetchUserExp = async () => {
@@ -67,7 +67,7 @@ const ExperienceList = (props) => {
               <Card.Body>
                 {getExperience.map((element) => (
                   <Col>
-                    <SingleExperience selectedJob={selectedJob} setSelectedJob={setSelectedJob}/>
+                    <SingleExperience  id={element._id}/>
                   </Col>
                 ))}
               </Card.Body>
