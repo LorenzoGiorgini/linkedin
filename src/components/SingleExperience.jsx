@@ -5,11 +5,7 @@ import { useParams } from "react-router";
 const SingleExperience = (props) => {
 
   const params = useParams();
-
-
-
   
-
   const [pressed, setPressed] = useState(false)
 
   return (
