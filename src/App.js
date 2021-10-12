@@ -5,6 +5,7 @@ import NavBar from './components/NavBar';
 import './CssStyles/Jumbo.css';
 import Profile from './views/Profile';
 import Footer from './components/Footer'
+import ExperienceList from './components/ExperienceList';
 
 function App() {
   return (
@@ -16,6 +17,7 @@ function App() {
           <Profile />
         </Route>
       </Router>
+      <ExperienceList/>
       <Footer/>
     </div>
   );
