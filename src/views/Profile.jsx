@@ -3,7 +3,6 @@ import Jumbo from "../components/Jumbo";
 import SideBar from "../components/SideBar";
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
-import ExperienceModal from "../components/ExperienceModal";
 import ExperienceList from "../components/ExperienceList";
 
 const Profile = () => {

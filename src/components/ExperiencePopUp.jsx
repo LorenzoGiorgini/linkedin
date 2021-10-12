@@ -1,7 +1,7 @@
 import { Button, Modal , Form } from "react-bootstrap"
 import { useState } from "react"
 
-const ExperienceModal = (props) => {
+const AddJobPosition = (props) => {
 
     const [userExp , setUserExp] = useState({
         role: "",
@@ -20,24 +20,8 @@ const ExperienceModal = (props) => {
     }
 
 
-    const handleSubmit = async (e) => {
-        e.preventDefault()
-        console.log(userExp)
+    const handleSubmit = async () => {
         
-        try {
-            let response = await fetch('https://striveschool-api.herokuapp.com/api/profile/616434dda890cc0015cf07f0/experiences', {
-                method: 'POST',
-                body: JSON.stringify(userExp),
-                headers: {
-                    "Authorization":
-                    "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MTY0MzRkZGE4OTBjYzAwMTVjZjA3ZjAiLCJpYXQiOjE2MzM5NTcwODUsImV4cCI6MTYzNTE2NjY4NX0.0KiKm3Nj5tYFKqs2AZK3KMWJf7ldhr1wmccH_VdoyjU",
-                    'Content-type': 'application/json'
-                }
-            })
-        
-        } catch (error) {
-            console.log(error)
-        }
     }
 
 
@@ -121,11 +105,12 @@ const ExperienceModal = (props) => {
 
                 </Modal.Body>
                 <Modal.Footer>
-                    <Button variant="primary" type="submit" onClick={handleSubmit}>Save changes</Button>
+                    <Button variant="danger" onClick={handleSubmit}> </Button>
+                    <Button variant="primary" onClick={handleSubmit}>Save changes</Button>
                 </Modal.Footer>
             </Modal>
         </>
     )
 }
 
-export default ExperienceModal
+export default AddJobPosition

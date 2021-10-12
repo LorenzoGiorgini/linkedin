@@ -1,6 +1,6 @@
 import { Button, Modal, Form } from "react-bootstrap";
 import { useState, useEffect } from "react";
-import ExperienceModal from "./ExperienceModal";
+import AddJobPosition from "./AddJobPosition";
 
 const PopUp = (props) => {
   const [lgShow, setLgShow] = useState(false);
@@ -44,7 +44,7 @@ const PopUp = (props) => {
   return experience === true ? (
     <>
       {" "}
-      <ExperienceModal show={show} setShow={setShow} />{" "}
+      <AddJobPosition show={show} setShow={setShow} />{" "}
     </>
   ) : (
     <>
