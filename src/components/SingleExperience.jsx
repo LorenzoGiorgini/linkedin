@@ -1,9 +1,40 @@
-import { Component } from "react";
+import { useState , useEffect } from "react";
+import ExperiencePopUp from "./ExperiencePopUp"
 
-class SingleExperience extends Component {
-  render() {
-    return <h1>lorem ipsum lorem ipsum</h1>;
-  }
+const SingleExperience = (props) => {
+
+
+
+  return props.setSelectedJob === true ? 
+  
+  (
+    
+  <>
+
+    <ExperiencePopUp pressed={props.selectedJob} elementId={props.id} />
+    <div>
+      <h1>dsdasda</h1>
+      <button onClick={props.setSelectedJob(true)}/>
+    </div>
+  
+  </>
+
+  ) 
+  
+  
+  : (
+
+  <>
+
+    <div>
+      <h1>dsdasda</h1>
+      <button onClick={props.setSelectedJob(true)}/>
+    </div>
+
+  </>
+
+  )
+
 }
 
 export default SingleExperience;

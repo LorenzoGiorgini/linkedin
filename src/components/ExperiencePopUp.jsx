@@ -1,7 +1,7 @@
 import { Button, Modal , Form } from "react-bootstrap"
 import { useState } from "react"
 
-const AddJobPosition = (props) => {
+const ExperiencePopUp = (props) => {
 
     const [userExp , setUserExp] = useState({
         role: "",
@@ -29,8 +29,8 @@ const AddJobPosition = (props) => {
         <>
             <Modal
                 size="lg"
-                show={props.show}
-                onHide={() => props.setShow(false)}
+                show={props.pressed}
+                onHide={() => props.pressed(false)}
                 aria-labelledby="example-modal-sizes-title-lg"
             >
                 <Modal.Header closeButton>
@@ -105,7 +105,7 @@ const AddJobPosition = (props) => {
 
                 </Modal.Body>
                 <Modal.Footer>
-                    <Button variant="danger" onClick={handleSubmit}> </Button>
+                    <Button variant="danger" onClick={handleSubmit}>X</Button>
                     <Button variant="primary" onClick={handleSubmit}>Save changes</Button>
                 </Modal.Footer>
             </Modal>
@@ -113,4 +113,4 @@ const AddJobPosition = (props) => {
     )
 }
 
-export default AddJobPosition
+export default ExperiencePopUp
