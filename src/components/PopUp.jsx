@@ -1,6 +1,7 @@
 import { Button, Modal, Form } from "react-bootstrap";
 import { useState, useEffect } from "react";
 import AddJobPosition from "./AddJobPosition";
+import { Plus } from "react-bootstrap-icons";
 
 const PopUp = (props) => {
   const [lgShow, setLgShow] = useState(false);
@@ -122,8 +123,9 @@ const PopUp = (props) => {
             </Form.Group>
 
             <Form.Group>
-              <Form.Label onClick={() => setExperience(true)}>
-                + Current Position
+              <Form.Label class="current-position" onClick={() => setExperience(true)}>
+                <Plus id="plus-icon" style={{fontSize:"30px"}} />
+               Add Current Position
               </Form.Label>
             </Form.Group>
 

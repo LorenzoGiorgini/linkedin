@@ -28,3 +28,17 @@
     margin: 0 0 16px;
     margin-top: 16px;
   }
+
+
+  .current-position {
+    color: #0a66c2;
+    font-size: 16px;
+    font-weight: 600;
+    padding: 6px;
+  }
+
+
+  .current-position:hover {
+    text-decoration: underline;
+    background-color: rgba(112, 181, 249, 0.2);
+  }
