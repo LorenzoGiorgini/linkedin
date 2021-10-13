@@ -5,8 +5,9 @@ import Footer from "./components/Footer";
 import Home from "./views/Home"
 
 
-import "bootstrap/dist/css/bootstrap.min.css";
+
 import "./CssStyles/Jumbo.css";
+import "bootstrap/dist/css/bootstrap.min.css";
 
 
 function App() {

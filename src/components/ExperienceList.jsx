@@ -38,7 +38,7 @@ const ExperienceList = (props) => {
   return (
     getExperience.length > 0 && (
       <>
-        <Row md={8} className="experience-list-con">
+        <Row md={8} className="experience-list-con mr-0 ml-0">
           <Col>
           
           

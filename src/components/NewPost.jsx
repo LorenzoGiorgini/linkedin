@@ -12,7 +12,7 @@ const NewPost = (props) => {
   return (
     <>
       <div className="container-post">
-      <div className="padding-jumbo">
+      <div className="padding-post">
       <section className="feedpost-section">
         <div className="d-flex">
           <img src="https://www.pngfind.com/pngs/m/610-6104451_image-placeholder-png-user-profile-placeholder-image-png.png" alt=" "  className="profile-img"/>

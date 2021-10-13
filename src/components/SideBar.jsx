@@ -115,7 +115,8 @@ const Sidebar = (props) => {
                     <div className="d-flex">
                       {/* Images */}
                       <Image
-                        className="img-circle profile-img mt-1"
+                        className="img-circle mt-1"
+                        style={{width: "48px" , height: "48px"}}
                         src={profile.image}
                         alt="Linkedin Member"
                         fluid
