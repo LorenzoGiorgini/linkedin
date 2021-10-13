@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import { Card, Row, Col, Image } from "react-bootstrap";
+import { Row, Col } from "react-bootstrap";
 import SingleExperience from "./SingleExperience";
 import { useParams } from "react-router";
 
