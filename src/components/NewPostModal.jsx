@@ -2,7 +2,7 @@ import { useState } from "react";
 import { Alert, Button, Col, Form, Modal, Row } from "react-bootstrap";
 import "../CssStyles/NewPost.css";
 
-const NewPostModal = () => {
+const NewPostModal = ({ fetchPosts }) => {
   const [show, setShow] = useState(false);
   const [newpost, setNewPost] = useState(null);
 
@@ -30,7 +30,9 @@ const NewPostModal = () => {
       );
       if (response.ok) {
         <Alert>post successfull</Alert>;
-        console.log(newpost)
+        fetchPosts();
+        setShow(false);
+        console.log(newpost);
       }
     } catch (error) {
       console.log(error);
@@ -39,12 +41,7 @@ const NewPostModal = () => {
 
   return (
     <>
-      <Button
-        className="post-form"
-        onClick={handleShow}
-        
-
-      >
+      <Button className="post-form" onClick={handleShow}>
         Start a post
       </Button>
 

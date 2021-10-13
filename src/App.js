@@ -1,4 +1,4 @@
-import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
+import { BrowserRouter as Router, Route, Switch, Redirect } from "react-router-dom";
 
 import { useEffect, useState } from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
@@ -17,6 +17,7 @@ function App() {
           {/* <Route path="/" exact /> */}
           <Route path="/profile/:id" component={Profile} exact={true} />
           <Route path="/feed/" exact component={Home} />
+          <Route render={() => <Redirect to="/feed/" />} />
         </Switch>
         <Footer />
       </Router>

@@ -5,8 +5,8 @@ import { Plus } from "react-bootstrap-icons";
 
 const PopUp = (props) => {
   const [lgShow, setLgShow] = useState(false);
-  const [experience, setExperience] = useState(false);
-  const [show, setShow] = useState(true);
+
+  const [show, setShow] = useState(false);
 
   const [oldUser, setOldUser] = useState({ ...props.obj });
 
@@ -37,24 +37,22 @@ const PopUp = (props) => {
           },
         }
       );
+      setLgShow(false);
     } catch (error) {
       console.log(error);
     }
   };
 
+  const closeModal = () => setLgShow(false);
 
-  const closeModal = () => (
-    setLgShow(false)
-  )
-  
-
-  return experience === true ? (
+  return (
     <>
-      {" "}
-      <AddJobPosition lgShow={lgShow} setLgShow={setLgShow} show={show} setShow={setShow} />{" "}
-    </>
-  ) : (
-    <>
+      <AddJobPosition
+        lgShow={lgShow}
+        setLgShow={setLgShow}
+        show={show}
+        setShow={setShow}
+      />
       <div className="pencil" onClick={() => setLgShow(true)}>
         <svg
           xmlns="http://www.w3.org/2000/svg"
@@ -129,9 +127,12 @@ const PopUp = (props) => {
             </Form.Group>
 
             <Form.Group>
-              <Form.Label class="current-position" onClick={() => setExperience(true)}>
-                <Plus id="plus-icon" style={{fontSize:"30px"}} />
-               Add Current Position
+              <Form.Label
+                class="current-position"
+                onClick={() => setShow(true)}
+              >
+                <Plus id="plus-icon" style={{ fontSize: "30px" }} />
+                Add Current Position
               </Form.Label>
             </Form.Group>
 
