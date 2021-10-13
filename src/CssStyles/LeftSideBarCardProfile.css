@@ -1,18 +1,37 @@
-/* .home-my-profile-card {
-    position: relative;
-  } */
   .home-my-profile-card p,
   .home-my-profile-card span {
     font-size: 9px;
     margin: 0;
   }
+
+
+  .home-my-profile-card {
+    background: white;
+    border-radius: 0.8rem !important;
+    box-shadow: 0px 0px 0px 1px rgba(0, 0, 0, 0.08)!important;
+    background: rgb(255, 255, 255);
+    margin-top: 24px;
+  }
+
+  .my-name:hover {
+    text-decoration: underline;
+  }
+
+
+
   .home-my-profile-card .hero {
     background-image: url("https://images.ctfassets.net/7thvzrs93dvf/wpImage18643/2f45c72db7876d2f40623a8b09a88b17/linkedin-default-background-cover-photo-1.png?w=790&h=196&q=90&fm=png");
     background-size: cover;
     height: 60px;
-    /* border-radius: 10px; */
-    border-top-left-radius: 10px;
-    border-top-right-radius: 10px;
+    border-top-left-radius: 0.8rem !important;
+    border-top-right-radius: 0.8rem !important;
+  }
+
+  .img-holder {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: -36px;
   }
  
   
@@ -20,13 +39,6 @@
     height: 72px;
     width: 72px;
     object-fit: cover;
-    object-position: top;
-    padding: 2px;
-    position: absolute;
-    top: px;
-    left: 50%;
-    transform: translateX(-50%) translateY(-50%);
-    background-color: white;
   }
   
   .home-my-profile-card .my-title,

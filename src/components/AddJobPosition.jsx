@@ -51,7 +51,7 @@ const AddJobPosition = (props) => {
       >
         <Modal.Header closeButton>
           <Modal.Title id="example-modal-sizes-title-lg">
-            Edit intro
+            Add New Job
           </Modal.Title>
         </Modal.Header>
         <Modal.Body>

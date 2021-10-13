@@ -5,7 +5,7 @@ import "../CssStyles/SideBar.css";
 
 // fontawesome imports
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faGlobe, faQuestionCircle } from "@fortawesome/free-solid-svg-icons";
+import { faGlobe, faQuestionCircle , faAlicorn } from "@fortawesome/free-solid-svg-icons";
 import { Link } from "react-router-dom";
 import { useHistory } from "react-router-dom";
 
@@ -70,9 +70,9 @@ const Sidebar = (props) => {
                 />
                 <div>{""}</div>
               </div>
-
+                <hr/>
               {/* add profile in another language  */}
-              {/* <div className="sidebar-btn mt-2 mb-2 d-flex">
+              <div className="sidebar-btn mt-2 mb-2 d-flex justify-content-between align-items-center">
                   <div className="ml-3">
                     <Button
                       className="rounded-pill btn-sm long-btn pl-2"
@@ -92,7 +92,7 @@ const Sidebar = (props) => {
                     className="button-icon globe-icon ml-auto mr-4"
                     icon={faGlobe}
                   />
-                </div> */}
+                </div>
             </div>
 
             <div className="edit-public-language-container d-flex justify-content-center p-0">

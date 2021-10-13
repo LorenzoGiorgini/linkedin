@@ -39,10 +39,10 @@ const Profile = () => {
   return (
     <Container style={{ marginTop: "100px" }}>
       <Row>
-        <Col md={2} sm={2} style={{ height: "100%" }}>
+        <Col xs={12} md={4} lg={2} style={{ height: "100%" }}>
           <LeftSideBarCardProfile/>
         </Col>
-        <Col md={6} sm={10} style={{ height: "100%" }}>
+        <Col xs={12} md={8} lg={6} style={{ height: "100%" }}>
           <NewPost fetchPosts={fetchPosts} />
           <ExistingPosts posts={posts} />
         </Col>

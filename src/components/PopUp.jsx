@@ -17,7 +17,9 @@ const PopUp = (props) => {
     });
     console.log(oldUser);
   };
-  useEffect(() => {
+
+
+ useEffect(() => {
     setOldUser(props.obj);
   }, [props.obj]);
 
@@ -42,8 +44,6 @@ const PopUp = (props) => {
       console.log(error);
     }
   };
-
-  const closeModal = () => setLgShow(false);
 
   return (
     <>
