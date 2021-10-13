@@ -1,4 +1,5 @@
 import { Col, Container, Row } from "react-bootstrap"
+import NewPost from "../components/NewPost"
 
 const Profile = () => {
     return (
@@ -11,6 +12,7 @@ const Profile = () => {
                 <Col md={6} sm={8} style={{ height: "100%" }}>
                     <h6>fdsdfsfsdf</h6>
                     <h6>fdsdfsfsdf</h6>
+                    <NewPost/>
                 </Col>
 
                 <Col md={4} className="d-none d-md-block" style={{ height: "100%" }}>
