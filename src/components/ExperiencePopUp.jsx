@@ -106,14 +106,14 @@ const ExperiencePopUp = (props) => {
                             onChange={e => handleInput('role', e.target.value)}
                             value={jobobj.role}
                             type="text"
-                            placeholder="Enter your name"
+                            placeholder="Enter your role at the company"
                         />
                     </Form.Group>
                     <Form.Group>
                         <Form.Label>Company *</Form.Label>
                         <Form.Control
                             type="text"
-                            placeholder="Enter your last name"
+                            placeholder="Enter company name"
                             value={jobobj.company}
                             onChange={e => handleInput('company', e.target.value)}
                         />

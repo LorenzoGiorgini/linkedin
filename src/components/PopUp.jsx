@@ -42,10 +42,16 @@ const PopUp = (props) => {
     }
   };
 
+
+  const closeModal = () => (
+    setLgShow(false)
+  )
+  
+
   return experience === true ? (
     <>
       {" "}
-      <AddJobPosition show={show} setShow={setShow} />{" "}
+      <AddJobPosition lgShow={lgShow} setLgShow={setLgShow} show={show} setShow={setShow} />{" "}
     </>
   ) : (
     <>

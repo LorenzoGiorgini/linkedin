@@ -40,22 +40,25 @@ const ExperienceList = (props) => {
       <>
         <Row md={8} className="experience-list-con">
           <Col>
-          <div className="d-flex align-items-center justify-content-between">
-          <h2 style={{fontSize: "20px"}}>Experience</h2>
-          {params.id === "me" && <Plus id="plus-icon" style={{fontSize:"35px"}} />}
-          </div>
-          {getExperience.map((element) => (
-                  <Col>
-                    <SingleExperience
-                      role={element.role}
-                      location={element.area}
-                      date={element.startDate}
-                      company={element.company}
-                      desc={element.description}
-                      id={element._id}
-                    />
-                  </Col>
+          
+          
+              <Col>
+              <div className="d-flex align-items-center justify-content-between mb-3">
+                <h2 style={{fontSize: "20px"}}>Experience</h2>
+                {params.id === "me" && <Plus id="plus-icon" style={{fontSize:"35px"}} />}
+              </div>
+              {getExperience.map((element) => (
+                <SingleExperience
+                  role={element.role}
+                  location={element.area}
+                  date={element.startDate}
+                  company={element.company}
+                  desc={element.description}
+                  id={element._id}
+                />
                 ))}
+              </Col>
+          
           </Col>
         </Row>
       </>
