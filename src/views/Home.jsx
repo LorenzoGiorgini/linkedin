@@ -3,6 +3,7 @@ import ExistingPosts from "../components/ExistingPosts"
 import NewPost from "../components/NewPost"
 import { useState , useEffect } from "react"
 import LeftSideBarCardProfile from "../leftSideBarHome/LeftSideBarCardProfile"
+import RightSideBar from "../rightSideBarHome/RightSideBar"
 
 
 const Profile = () => {
@@ -47,8 +48,7 @@ const Profile = () => {
         </Col>
 
         <Col md={4} className="d-none d-md-block" style={{ height: "100%" }}>
-          <h1>fdsdfsfsdf</h1>
-          <h1>fdsdfsfsdf</h1>
+          <RightSideBar />
         </Col>
       </Row>
     </Container>
