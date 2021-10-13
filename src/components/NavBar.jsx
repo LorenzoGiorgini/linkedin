@@ -29,7 +29,7 @@ const NavBar = () => {
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
         <Navbar.Collapse id="basic-navbar-nav">
           <Nav className="mr-auto">
-            <Link to="/">
+            <Link to="/feed/">
             <Nav.Link
               href="#home"
               className="d-flex flex-column align-items-center"
