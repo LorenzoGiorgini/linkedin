@@ -1,20 +1,24 @@
+// Will need to import the link to profile later
+// import { Link } from "react-router-dom"; 
+import "../CssStyles/LeftSideBarCardProfile.css"
+
 const LeftSideBarCardProfile = () => {
   return (
     <>
-      <section className="feed-my-profile">
+      <section className="home-my-profile-card mt-3">
         <div className="hero"></div>
-        {/* Link to Profile with a Link tag here START */}
+        {/* Link to Profile with a Link to profile/me */}
         <img
           className="avatar rounded-circle"
           src="https://www.pngfind.com/pngs/m/610-6104451_image-placeholder-png-user-profile-placeholder-image-png.png"
           alt=""
         />
-        {/* Link to Profile with a Link tag here END */}
         
-        <h6 className="text-center my-name">{/* Link to profile */}</h6>
+
+        <h6 className="text-center my-name">{/*Name & UserName here and also link to profile/me */}</h6>
 
         <p className="text-center my-title border-bottom pb-3">Title</p>
-        <div className="d-flex flex-column px-3 views border-bottom">
+        <div className="views d-flex flex-column px-3 border-bottom">
           <div className="d-flex justify-content-between mt-3">
             <p>Who viewed your profile</p>
             <span>62</span>

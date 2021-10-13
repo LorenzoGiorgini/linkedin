@@ -1,0 +1,51 @@
+/* .home-my-profile-card {
+    position: relative;
+  } */
+  .home-my-profile-card p,
+  .home-my-profile-card span {
+    font-size: 9px;
+    margin: 0;
+  }
+  .home-my-profile-card .hero {
+    background-image: url("https://images.ctfassets.net/7thvzrs93dvf/wpImage18643/2f45c72db7876d2f40623a8b09a88b17/linkedin-default-background-cover-photo-1.png?w=790&h=196&q=90&fm=png");
+    background-size: cover;
+    height: 60px;
+    /* border-radius: 10px; */
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+  }
+ 
+  
+  .home-my-profile-card .avatar {
+    height: 72px;
+    width: 72px;
+    object-fit: cover;
+    object-position: top;
+    padding: 2px;
+    position: absolute;
+    top: px;
+    left: 50%;
+    transform: translateX(-50%) translateY(-50%);
+    background-color: white;
+  }
+  
+  .home-my-profile-card .my-title,
+  .home-my-profile-card .views p,
+  .home-my-profile-card .my-items {
+    color:  rgba(58, 56, 56, 0.6);
+  }
+  
+  .home-my-profile-card .views p {
+    color: rgba(58, 56, 56, 0.6);
+    font-weight: bold;
+    font-size: 9px;
+  }
+  .home-my-profile-card .views span {
+    color: rgb(91, 164, 237)
+  }
+  
+  .home-my-profile-card .my-items {
+    font-weight: bold;
+    font-size: 11px;
+  }
+  
