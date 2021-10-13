@@ -10,6 +10,8 @@ const Profile = () => {
                     <h6>fdsdfsfsdf</h6>
                 </Col>
                 <Col md={6} sm={8} style={{ height: "100%" }}>
+                    <h6>fdsdfsfsdf</h6>
+                    <h6>fdsdfsfsdf</h6>
                     <NewPost/>
                 </Col>
 
