@@ -4,50 +4,67 @@ import "../CssStyles/Posts.css";
 const SinglePost = (props) => {
  
   return (
-    <div className="jumbo-container">
+    <div className="container-post">
       <div className="padding-jumbo">
+        <div className="d-flex justify-content-end">
+        <Dropdown>
+          <Dropdown.Toggle
+            style={{ background: "transparent", color: "black" }}
+            id="dropdown-basic"
+          >
+            ...
+          </Dropdown.Toggle>
+
+          {props.element.user._id === "616434dda890cc0015cf07f0" ? (
+          <Dropdown.Menu>
+            <Dropdown.Item href="#/action-1">
+              Modify
+            </Dropdown.Item>
+            <Dropdown.Item href="#/action-2">
+              Delete Post
+            </Dropdown.Item>
+            <Dropdown.Item href="#/action-1">
+              Save
+            </Dropdown.Item>
+            <Dropdown.Item href="#/action-2">
+              Copy Link
+            </Dropdown.Item>
+          </Dropdown.Menu>) : (
+            <Dropdown.Menu>
+            <Dropdown.Item href="#/action-1">
+              Save
+            </Dropdown.Item>
+            <Dropdown.Item href="#/action-2">
+              Copy Link
+            </Dropdown.Item>
+            <Dropdown.Item href="#/action-3">
+              Report
+            </Dropdown.Item>
+          </Dropdown.Menu>
+          )}
+        </Dropdown>
+        </div>
+        <hr />
         <div className="d-flex">
           <div className="image-container">
             <div className="img-profile-container">
               <img
                 className="profile-img"
-                src="https://via.placeholder.com/150"
+                src={props.element.user.image}
               />
             </div>
           </div>
           <div className="d-flex flex-column ml-2 mb-2">
-            <div className="d-flex">
-              <div className="span-big">name</div>
-              <div>
-                <Dropdown>
-                  <Dropdown.Toggle
-                    style={{ background: "transparent", color: "black" }}
-                    id="dropdown-basic"
-                  >
-                    ...
-                  </Dropdown.Toggle>
 
-                  <Dropdown.Menu>
-                    <Dropdown.Item href="#/action-1">Action</Dropdown.Item>
-                    <Dropdown.Item href="#/action-2">
-                      Another action
-                    </Dropdown.Item>
-                    <Dropdown.Item href="#/action-3">
-                      Something else
-                    </Dropdown.Item>
-                  </Dropdown.Menu>
-                </Dropdown>
-              </div>
-            </div>
+            <span className="span-big">{props.element.user.name} {" "} {props.element.user.surname}</span>
 
-            <span className="span-small text-muted">title</span>
+            <span className="span-small text-muted">{props.element.user.title}</span>
 
-            <span className="span-small text-muted">time</span>
+            <span className="span-small text-muted">{props.element.user.createdAt}</span>
           </div>
         </div>
         <div className="post-description">
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Deserunt,
-          sed?
+          {props.element.text}
         </div>
         <div className="translation">See Translation</div>
         <hr />
