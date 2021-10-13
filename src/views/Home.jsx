@@ -1,7 +1,9 @@
-import { Col, Container, Row } from "react-bootstrap";
-import ExistingPosts from "../components/ExistingPosts";
-import NewPost from "../components/NewPost";
-import { useState, useEffect } from "react";
+import { Col, Container, Row } from "react-bootstrap"
+import ExistingPosts from "../components/ExistingPosts"
+import NewPost from "../components/NewPost"
+import { useState , useEffect } from "react"
+import LeftSideBarCardProfile from "../leftSideBarHome/LeftSideBarCardProfile"
+
 
 const Profile = () => {
   const [toggle, setToggle] = useState(false);
@@ -37,8 +39,7 @@ const Profile = () => {
     <Container style={{ marginTop: "100px" }}>
       <Row>
         <Col md={2} sm={2} style={{ height: "100%" }}>
-          <h6>fdsdfsfsdf</h6>
-          <h6>fdsdfsfsdf</h6>
+          <LeftSideBarCardProfile/>
         </Col>
         <Col md={6} sm={10} style={{ height: "100%" }}>
           <NewPost fetchPosts={fetchPosts} />
