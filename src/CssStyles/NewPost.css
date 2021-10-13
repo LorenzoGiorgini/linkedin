@@ -1,12 +1,38 @@
-.feedpost-section .post-form {
+.container-post {
+    color: white;
+    background: white;
+    border-radius: 0.8rem;
+    box-shadow: 0px 0px 0px 1px rgba(0, 0, 0, 0.08)!important;
+    color: black!important;
+    margin-top: 16px;
+}
+
+
+.trending {
+    font-size: 12px;
+}
+
+.trending-text {
+    margin-left: 5px;
+}
+
+.trending-text:hover {
+    text-decoration: underline;
+}
+
+.feedpost-section {
+    width: 100%;
+}
+
+.feedpost-section .post-form{
     border-radius: 50px;
-    width: 300%;
+    width: 100%;
     text-align: left;
     background-color: #fff;
     border: 1px solid rgb(185, 185, 185);
     color: rgb(119, 118, 118);
     margin-bottom: 20px;
-
+    margin-left: 10px;
 }
 .feedpost-section .post-form:hover {
    background-color: rgba(0,0,0,0.1);
@@ -44,8 +70,29 @@
     color: rgba(0,0,0,0.5);
 }
 
-.post-form-btn{
-    border-radius: 50%;
-    width: 300px;
+.btn-feed {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100px;
+    height: 45px;
 }
 
+.btn-feed-big {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 125px;
+    height: 45px;
+}
+
+.btn-feed-big:hover {
+    background: lightgray;
+    border-radius: 8px;
+}
+
+
+.btn-feed:hover {
+    background: lightgray;
+    border-radius: 8px;
+}

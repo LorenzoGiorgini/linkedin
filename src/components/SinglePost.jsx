@@ -1,7 +1,36 @@
 import { Col, Dropdown, Row } from "react-bootstrap";
 import "../CssStyles/Posts.css";
+import { useState, useEffect } from "react";
+
+
+
 
 const SinglePost = (props) => {
+
+  const [ getComment , setGetComment ] = useState(null)
+  const [ post , setPost ] = useState(null)
+
+
+  const fetchSinglePost = async () => {
+    try {
+      let response = await fetch(
+        `https://striveschool-api.herokuapp.com/api/posts/${getComment}`,
+        {
+          headers: {
+            Authorization:
+              "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MTY0MzRkZGE4OTBjYzAwMTVjZjA3ZjAiLCJpYXQiOjE2MzM5NTcwODUsImV4cCI6MTYzNTE2NjY4NX0.0KiKm3Nj5tYFKqs2AZK3KMWJf7ldhr1wmccH_VdoyjU",
+          },
+        }
+      );
+      if (response.ok) {
+        let data = await response.json();
+        console.log(data);
+        setPost(data);
+      }
+    } catch (error) {
+      console.log(error);
+    }
+  }
  
   return (
     <div className="container-post">
@@ -17,7 +46,7 @@ const SinglePost = (props) => {
 
           {props.element.user._id === "616434dda890cc0015cf07f0" ? (
           <Dropdown.Menu>
-            <Dropdown.Item href="#/action-1">
+            <Dropdown.Item href="#/action-1" onClick={() => setGetComment(props.element._id)}>
               Modify
             </Dropdown.Item>
             <Dropdown.Item href="#/action-2">

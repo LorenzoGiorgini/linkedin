@@ -43,7 +43,7 @@ const NewPostModal = () => {
         className="post-form"
         onClick={handleShow}
         
-        style={{ width: "100%" }}
+
       >
         Start a post
       </Button>

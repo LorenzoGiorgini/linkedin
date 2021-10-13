@@ -18,7 +18,7 @@ const ExistingPosts = () => {
       if (response.ok) {
         let data = await response.json();
         console.log(data);
-        const reversed = data.reverse().slice(0, 5);
+        const reversed = data.reverse().slice(0, 20);
         setPosts(reversed);
       }
     } catch (error) {

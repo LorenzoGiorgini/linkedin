@@ -1,17 +1,21 @@
 import { Col, Container, Row } from "react-bootstrap"
 import ExistingPosts from "../components/ExistingPosts"
 import NewPost from "../components/NewPost"
+import { useState , useEffect } from "react"
 
 const Profile = () => {
+
+    const [ toggle , setToggle ] = useState(false)
+
     return (
         <Container style={{ marginTop: "100px" }}>
             <Row>
-                <Col md={2} sm={4} style={{ height: "100%" }}>
+                <Col md={2} sm={2} style={{ height: "100%" }}>
                     <h6>fdsdfsfsdf</h6>
                     <h6>fdsdfsfsdf</h6>
                 </Col>
-                <Col md={6} sm={8} style={{ height: "100%" }}>
-                    <NewPost/>
+                <Col md={6} sm={10} style={{ height: "100%" }}>
+                    <NewPost />
                     <ExistingPosts />
                 </Col>
 
