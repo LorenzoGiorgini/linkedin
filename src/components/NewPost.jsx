@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react"
 import { Row, Col, Button } from "react-bootstrap";
 import "../CssStyles/NewPost.css";
+import NewPostModal from "./NewPostModal";
 
 const NewPost = () => {
     // States from Post Modal
@@ -22,7 +23,7 @@ const NewPost = () => {
 
           <div className="feedpost-section">
               {/* Put the OnClick with handleShow func from Post Modal that you implemented  */}
-            <button onClick={handleShow} className="post-form">Start a post</button>
+            <NewPostModal/>
           </div>
           {/* Here goes the Modal call with its props <PostModal show={show} onHide={handleClose} /> */}
         </div>

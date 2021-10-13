@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { Alert, Button, Col, Form, Modal, Row } from "react-bootstrap";
+import "../CssStyles/NewPost.css";
 
 const NewPostModal = () => {
   const [show, setShow] = useState(false);
@@ -39,9 +40,9 @@ const NewPostModal = () => {
   return (
     <>
       <Button
-        variant="primary"
+        className="post-form"
         onClick={handleShow}
-        className="align"
+        
         style={{ width: "100%" }}
       >
         Start a post
