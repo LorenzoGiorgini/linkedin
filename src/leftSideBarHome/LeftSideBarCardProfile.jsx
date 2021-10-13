@@ -19,12 +19,12 @@ const LeftSideBarCardProfile = () => {
 
         <h6 className="text-center my-name">Lorenzo Giorgini</h6>
         <p className="text-center my-title border-bottom pb-3">Title</p>
-        <div className="views d-flex flex-column px-3 border-bottom">
-          <div className="d-flex justify-content-between mt-3">
+        <div className="views d-flex flex-column px-3 border-bottom mt-3">
+          <div className="views-one d-flex justify-content-between">
             <p>Who viewed your profile</p>
             <span>62</span>
           </div>
-          <div className="d-flex justify-content-between pb-3">
+          <div className="views-two d-flex justify-content-between mt-2 mb-3">
             <p>Views of your post</p>
             <span>108</span>
           </div>

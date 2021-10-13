@@ -7,7 +7,6 @@ import RightSideBar from "../rightSideBarHome/RightSideBar"
 
 
 const Profile = () => {
-  const [toggle, setToggle] = useState(false);
   const [posts, setPosts] = useState([]);
 
   const fetchPosts = async () => {

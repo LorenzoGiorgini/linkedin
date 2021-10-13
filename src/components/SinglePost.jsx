@@ -1,11 +1,9 @@
-import { Col, Dropdown, Row } from "react-bootstrap";
+import  Dropdown from "react-bootstrap/Dropdown";
 import "../CssStyles/Posts.css";
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import EditPostModule from "./EditPostModule";
 
 const SinglePost = (props) => {
-  // const [ getComment , setGetComment ] = useState(null)
-  // const [ post , setPost ] = useState(null)
 
   const [show, setShow] = useState(false);
   const handleClose = () => setShow(false);

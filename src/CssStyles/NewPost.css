@@ -87,12 +87,12 @@
 }
 
 .btn-feed-big:hover {
-    background: lightgray;
+    background: rgb(218, 218, 218);
     border-radius: 8px;
 }
 
 
 .btn-feed:hover {
-    background: lightgray;
+    background: rgb(218, 218, 218);
     border-radius: 8px;
 }
