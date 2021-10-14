@@ -3,10 +3,12 @@ import { Col, Row } from "react-bootstrap";
 import PopUp from "./PopUp";
 import { useParams } from "react-router";
 import { useState , useEffect } from "react";
+import ImageModal from "./ImageModal";
 
 const Jumbo = (props) => {
 
   const params = useParams();
+  const [imageModal, setImageModal] = useState(false)
 
 
   const [ image , setImage ] = useState(null)
@@ -48,8 +50,9 @@ const Jumbo = (props) => {
       <div className="padding-jumbo">
         <div className="image-container">
           <div className="img-profile-container">
-            <img className="img-profile" src={props.user.image} />
+            <img className="img-profile" onClick={() => setImageModal(true)} src={props.user.image} />
           </div>
+          <ImageModal imageModal={imageModal} setImageModal={setImageModal} />
           <input type="file" onChange={TargetFile}/>
           <button onClick={submitFile}>Submit</button>
           {params.id === "me" /*  || params.id ==="616434dda890cc0015cf07f0" */ && <PopUp getExperience={props.getExperience} setGetExperience={props.setGetExperience} fetchUser={props.fetchUser} obj={props.user} />}
