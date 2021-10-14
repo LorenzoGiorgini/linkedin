@@ -30,13 +30,13 @@ const SinglePost = (props) => {
   return (
     <div className="container-post">
       <div className="padding-jumbo">
-        <div className="d-flex">
-          <div className="image-container">
+        <div className="row">
+          <div className="image-container col-2 mt-2">
             <div className="img-profile-container">
               <img className="profile-img" src={props.element.user.image} />
             </div>
           </div>
-          <div className="d-flex flex-column ml-2 mb-2">
+          <div className="d-flex flex-column  mb-2 col-8 mt-2">
             <span className="span-big">
               {props.element.user.name} {props.element.user.surname}
             </span>
@@ -48,7 +48,8 @@ const SinglePost = (props) => {
             <span className="span-small text-muted">
               {props.element.user.createdAt}
             </span>
-          </div>
+            </div>
+            <div className="col-2 mt-2">
           <Dropdown>
             <Dropdown.Toggle
               style={{ background: "transparent", color: "black" }}
@@ -79,6 +80,7 @@ const SinglePost = (props) => {
               </Dropdown.Menu>
             )}
           </Dropdown>
+          </div>
         </div>
         <div className="post-description">{props.element.text}</div>
         <div>
