@@ -1,7 +1,10 @@
 import { Button, Modal, Form } from "react-bootstrap";
 import { useState } from "react";
+import { useParams } from "react-router";
 
 const AddJobPosition = (props) => {
+
+  const params = useParams()
 
   const [userExp, setUserExp] = useState({
     role: "",
@@ -37,10 +40,8 @@ const AddJobPosition = (props) => {
         }
       );
       if(response.ok) {
-      const data = await response.json()
-
-      props.setShow(false);
-      fetchUserExp()
+        props.setShow(false);
+        fetchUserExp()
       }
     
     } catch (error) {
