@@ -10,38 +10,6 @@ const Jumbo = (props) => {
   const params = useParams();
   const [imageModal, setImageModal] = useState(false)
 
-
-  const [ image , setImage ] = useState(null)
-
-  const TargetFile = (e) => {
-    console.log("Event", e.target.files[0]);
-    if (e.target && e.target.files[0]) {
-      setImage(e.target.files[0]);
-    }
-  };
-
-  const submitFile = async () => {
-    try {
-      let formData = new FormData();
-
-      formData.append("profile" , image)
-      let response = await fetch("https://striveschool-api.herokuapp.com/api/profile/616434dda890cc0015cf07f0/picture" , 
-        {
-          body: formData,
-          method: "POST",
-          headers: {
-            Authorization:
-            "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MTY0MzRkZGE4OTBjYzAwMTVjZjA3ZjAiLCJpYXQiOjE2MzM5NTcwODUsImV4cCI6MTYzNTE2NjY4NX0.0KiKm3Nj5tYFKqs2AZK3KMWJf7ldhr1wmccH_VdoyjU",
-          }
-        }
-      )
-      console.log(response)
-      props.fetchUser(params.id)
-    } catch (error) {
-      console.log(error)
-    }
-  };
-
   return (
     <div className="jumbo-container">
       <div className="img-bck-container">
@@ -52,9 +20,7 @@ const Jumbo = (props) => {
           <div className="img-profile-container">
             <img className="img-profile" onClick={() => setImageModal(true)} src={props.user.image} />
           </div>
-          <ImageModal imageModal={imageModal} setImageModal={setImageModal} />
-          <input type="file" onChange={TargetFile}/>
-          <button onClick={submitFile}>Submit</button>
+          <ImageModal fetchUser={props.fetchUser} imageModal={imageModal} setImageModal={setImageModal} />
           {params.id === "me" /*  || params.id ==="616434dda890cc0015cf07f0" */ && <PopUp getExperience={props.getExperience} setGetExperience={props.setGetExperience} fetchUser={props.fetchUser} obj={props.user} />}
         </div>
         <Row>
