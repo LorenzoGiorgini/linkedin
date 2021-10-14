@@ -10,6 +10,8 @@ const Profile = () => {
   
   const [posts, setPosts] = useState([]);
 
+  const [ profile , setProfile ] = useState([])
+
   const fetchPosts = async () => {
     try {
       let response = await fetch(
@@ -32,18 +34,39 @@ const Profile = () => {
     }
   };
 
+  const fetchProfile = async () => {
+    try {
+      let response = await fetch(
+        `https://striveschool-api.herokuapp.com/api/profile/me`,
+        {
+          headers: {
+            Authorization:
+              "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MTY0MzRkZGE4OTBjYzAwMTVjZjA3ZjAiLCJpYXQiOjE2MzM5NTcwODUsImV4cCI6MTYzNTE2NjY4NX0.0KiKm3Nj5tYFKqs2AZK3KMWJf7ldhr1wmccH_VdoyjU",
+          },
+        }
+      );
+      if (response.ok) {
+        let data = await response.json()
+        setProfile(data)
+      }
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
   useEffect(() => {
     fetchPosts();
+    fetchProfile();
   }, []);
 
   return (
     <Container style={{ marginTop: "100px" }}>
       <Row>
         <Col xs={12} md={4} lg={2} style={{ height: "100%" }}>
-          <LeftSideBarCardProfile/>
+          <LeftSideBarCardProfile profile={profile}/>
         </Col>
         <Col xs={12} md={8} lg={6} style={{ height: "100%" }}>
-          <NewPost setPosts={setPosts} posts={posts} fetchPosts={fetchPosts} />
+          <NewPost profile={profile} setPosts={setPosts} posts={posts} fetchPosts={fetchPosts} />
           <ExistingPosts posts={posts} />
         </Col>
 

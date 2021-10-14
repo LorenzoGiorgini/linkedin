@@ -2,7 +2,7 @@
 // import { Link } from "react-router-dom"; 
 import "../CssStyles/LeftSideBarCardProfile.css"
 
-const LeftSideBarCardProfile = () => {
+const LeftSideBarCardProfile = ({profile}) => {
   return (
     <>
       <section className="home-my-profile-card mt-3">
@@ -11,14 +11,14 @@ const LeftSideBarCardProfile = () => {
         <div className="img-holder">
           <img
             className="avatar rounded-circle"
-            src="https://www.pngfind.com/pngs/m/610-6104451_image-placeholder-png-user-profile-placeholder-image-png.png"
+            src={profile.image}
             alt=" "
           />
         </div>
         
 
-        <h6 className="text-center my-name">Lorenzo Giorgini</h6>
-        <p className="text-center my-title border-bottom pb-3">Title</p>
+        <h6 className="text-center my-name">{profile.name}{" "}{profile.surname}</h6>
+        <p className="text-center my-title border-bottom pb-3">{profile.title}</p>
         <div className="views d-flex flex-column px-3 border-bottom mt-3">
           <div className="views-one d-flex justify-content-between">
             <p>Who viewed your profile</p>
