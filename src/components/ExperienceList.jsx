@@ -54,6 +54,7 @@ const ExperienceList = (props) => {
                   date={element.startDate}
                   company={element.company}
                   desc={element.description}
+                  img={element.image}
                   id={element._id}
                   fetchUserExp={fetchUserExp}
                 />

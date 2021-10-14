@@ -20,7 +20,7 @@ const NewPost = (props) => {
           <div className="feedpost-section">
               {/* Put the OnClick with handleShow func from Post Modal that you implemented  */}
             
-            <NewPostModal fetchPosts={props.fetchPosts}/>
+            <NewPostModal posts={props.posts} fetchPosts={props.fetchPosts}/>
           </div>
           {/* Here goes the Modal call with its props <PostModal show={show} onHide={handleClose} /> */}
         </div>

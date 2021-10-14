@@ -61,3 +61,10 @@ h1 , h2 , h3 {
     text-decoration: underline;
     background-color: rgba(112, 181, 249, 0.4);
   }
+
+
+  .image-container {
+      width: 200px;
+      height: 200px;
+      object-fit: cover;
+  }

@@ -43,7 +43,7 @@ const Profile = () => {
           <LeftSideBarCardProfile/>
         </Col>
         <Col xs={12} md={8} lg={6} style={{ height: "100%" }}>
-          <NewPost fetchPosts={fetchPosts} />
+          <NewPost posts={posts} fetchPosts={fetchPosts} />
           <ExistingPosts posts={posts} />
         </Col>
 
