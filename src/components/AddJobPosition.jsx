@@ -40,8 +40,10 @@ const AddJobPosition = (props) => {
         }
       );
       if(response.ok) {
+        let data = await response.json()
+        submitFile(data._id)
         props.setShow(false);
-        fetchUserExp()
+        setTimeout(() => (fetchUserExp()) , 1000);
       }
     
     } catch (error) {
@@ -65,6 +67,39 @@ const AddJobPosition = (props) => {
         let data = await response.json();
         props.setGetExperience(data);
       }
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
+  const [image, setImage] = useState(null);
+
+  const TargetFile = (e) => {
+    console.log("Event", e.target.files[0]);
+    if (e.target && e.target.files[0]) {
+      setImage(e.target.files[0]);
+      
+    }
+  };
+
+  const submitFile = async (id) => {
+    let formData = new FormData();
+
+    formData.append("experience", image);
+    try {
+      
+      let response = await fetch(
+        `https://striveschool-api.herokuapp.com/api/profile/616434dda890cc0015cf07f0/experiences/${id}/picture`,
+        {
+          body: formData,
+          method: "POST",
+          headers: {
+            Authorization:
+              "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MTY0MzRkZGE4OTBjYzAwMTVjZjA3ZjAiLCJpYXQiOjE2MzM5NTcwODUsImV4cCI6MTYzNTE2NjY4NX0.0KiKm3Nj5tYFKqs2AZK3KMWJf7ldhr1wmccH_VdoyjU",
+          },
+        }
+      );
+      console.log(response);
     } catch (error) {
       console.log(error);
     }
@@ -143,6 +178,7 @@ const AddJobPosition = (props) => {
                 onChange={(e) => handleInput("area", e.target.value)}
               />
             </Form.Group>
+            <input type="file" onChange={TargetFile} />
           </Form>
         </Modal.Body>
         <Modal.Footer>
