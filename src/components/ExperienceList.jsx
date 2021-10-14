@@ -7,10 +7,10 @@ import { Plus } from "react-bootstrap-icons";
 
 const ExperienceList = (props) => {
 
-  const [getExperience, setGetExperience] = useState([]);
-
+  
   const params = useParams();
-
+  const [getExperience, setGetExperience] = useState([]);
+  
   const fetchUserExp = async () => {
     try {
       let response = await fetch(

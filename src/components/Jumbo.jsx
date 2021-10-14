@@ -14,7 +14,7 @@ const Jumbo = (props) => {
   const TargetFile = (e) => {
     console.log("Event", e.target.files[0]);
     if (e.target && e.target.files[0]) {
-      setImage("file", e.target.files[0]);
+      setImage(e.target.files[0]);
     }
   };
 
@@ -34,6 +34,7 @@ const Jumbo = (props) => {
         }
       )
       console.log(response)
+      props.fetchUser(params.id)
     } catch (error) {
       console.log(error)
     }
@@ -48,10 +49,10 @@ const Jumbo = (props) => {
         <div className="image-container">
           <div className="img-profile-container">
             <img className="img-profile" src={props.user.image} />
-            <input type="file" name="" onChange={TargetFile}/>
+            <input type="file" onChange={TargetFile}/>
             <button onClick={submitFile}>Submit</button>
           </div>
-          {params.id === "me" /*  || params.id ==="616434dda890cc0015cf07f0" */ && <PopUp obj={props.user} />}
+          {params.id === "me" /*  || params.id ==="616434dda890cc0015cf07f0" */ && <PopUp fetchUser={props.fetchUser} obj={props.user} />}
         </div>
         <Row>
           <Col md={8} className="color">

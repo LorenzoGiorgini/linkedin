@@ -40,7 +40,7 @@ const Profile = () => {
     <Container style={{ marginTop: "100px" }}>
       <Row>
         <Col md={8} style={{ height: "100%" }}>
-          {user && <Jumbo user={user} />}
+          {user && <Jumbo fetchUser={fetchUser} user={user} />}
           {user && <ExperienceList user={user} />}
         </Col>
 

@@ -2,8 +2,13 @@ import { Button, Modal, Form } from "react-bootstrap";
 import { useState, useEffect } from "react";
 import AddJobPosition from "./AddJobPosition";
 import { Plus } from "react-bootstrap-icons";
+import { useParams } from "react-router";
 
 const PopUp = (props) => {
+  
+
+  const params = useParams();
+
   const [lgShow, setLgShow] = useState(false);
 
   const [show, setShow] = useState(false);
@@ -40,6 +45,7 @@ const PopUp = (props) => {
         }
       );
       setLgShow(false);
+      props.fetchUser(params.id)
     } catch (error) {
       console.log(error);
     }
