@@ -3,7 +3,7 @@ import { Alert, Button, Col, Form, Modal, Row } from "react-bootstrap";
 
 import "../CssStyles/NewPost.css";
 
-const NewPostModal = ({ fetchPosts, posts, setPosts }) => {
+const NewPostModal = ({ fetchPosts, posts, setPosts, profile }) => {
   const [show, setShow] = useState(false);
   const [newpost, setNewPost] = useState(null);
   const [imagePost, setImagePost] = useState(null);
@@ -39,11 +39,10 @@ const NewPostModal = ({ fetchPosts, posts, setPosts }) => {
          console.log(res._id)
          submitFile(res._id)
         console.log(posts);
-        // setPosts(res)
         setShow(false);
         console.log(newpost);
         console.log(posts._id);
-        // submitFile(posts._id[0])
+        fetchPosts()
       }
     } catch (error) {
       console.log(error);
@@ -102,13 +101,13 @@ const NewPostModal = ({ fetchPosts, posts, setPosts }) => {
                 <Row>
                   <Col sm={2}>
                     <img
-                      className="img-fluid"
-                      src="https://cdn.pixabay.com/photo/2016/08/08/09/17/avatar-1577909_960_720.png"
+                      className="profile-img mr-5"
+                      src={profile.image}
                       alt=""
                     />
                   </Col>
                   <Col col={10}>
-                    <h3>Lorenzo Giorgini</h3>
+                    <h3>{profile.name}{" "}{profile.surname}</h3>
                   </Col>
                 </Row>
               </Form.Label>

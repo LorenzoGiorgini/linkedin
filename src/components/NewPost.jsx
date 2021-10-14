@@ -15,12 +15,12 @@ const NewPost = (props) => {
       <div className="padding-post">
       <section className="feedpost-section">
         <div className="d-flex">
-          <img src="https://www.pngfind.com/pngs/m/610-6104451_image-placeholder-png-user-profile-placeholder-image-png.png" alt=" "  className="profile-img"/>
+          <img src={props.profile.image} alt=" "  className="profile-img"/>
 
           <div className="feedpost-section">
               {/* Put the OnClick with handleShow func from Post Modal that you implemented  */}
             
-            <NewPostModal setPosts={props.setPosts} posts={props.posts} fetchPosts={props.fetchPosts}/>
+            <NewPostModal profile={props.profile} setPosts={props.setPosts} posts={props.posts} fetchPosts={props.fetchPosts}/>
           </div>
           {/* Here goes the Modal call with its props <PostModal show={show} onHide={handleClose} /> */}
         </div>
