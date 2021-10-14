@@ -91,10 +91,9 @@ const ExperiencePopUp = (props) => {
 
   const submitFile = async (id) => {
     try {
-
       let formData = new FormData();
 
-      formData.append("experience", image);
+      formData.append("profile", image);
       let response = await fetch(
         `https://striveschool-api.herokuapp.com/api/profile/616434dda890cc0015cf07f0/experiences/${id}/picture`,
         {
@@ -107,7 +106,7 @@ const ExperiencePopUp = (props) => {
         }
       );
       console.log(response);
-      props.fetchUserExp(params.id);
+      /* props.fetchUser(params.id); */
     } catch (error) {
       console.log(error);
     }
