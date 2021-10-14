@@ -39,7 +39,7 @@ const NewPostModal = ({ fetchPosts , posts }) => {
         fetchPosts();
         setShow(false);
         console.log(newpost);
-        console.log(posts._id[0])
+        submitFile(posts._id[0])
       }
     } catch (error) {
       console.log(error);
