@@ -39,7 +39,7 @@ const NewPostModal = ({ fetchPosts , posts }) => {
         fetchPosts();
         setShow(false);
         console.log(newpost);
-        submitFile(posts._id[0])
+        submitFile()
       }
     } catch (error) {
       console.log(error);
@@ -57,14 +57,14 @@ const NewPostModal = ({ fetchPosts , posts }) => {
     }
   };
 
-  const submitFile = async (id) => {
+  const submitFile = async () => {
     try {
 
       let formData = new FormData();
 
       formData.append("experience", image);
       let response = await fetch(
-        `https://striveschool-api.herokuapp.com/api/posts/${id}`,
+        `https://striveschool-api.herokuapp.com/api/posts/`,
         {
           body: formData,
           method: "POST",
