@@ -110,7 +110,7 @@ const ExperiencePopUp = (props) => {
         }
       );
       console.log(response);
-      /* props.fetchUser(params.id); */
+      props.fetchUserExp(params.id);
     } catch (error) {
       console.log(error);
     }

@@ -86,6 +86,7 @@ const SinglePost = (props) => {
           </div>
         </div>
         <div className="post-description">{props.element.text}</div>
+        <div><img src="" alt=" " /></div>
         <div className="translation">See Translation</div>
         <hr />
         <div className="d-flex justify-content-around">
