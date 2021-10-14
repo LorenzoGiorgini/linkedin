@@ -46,6 +46,7 @@ const SingleExperience = (props) => {
           pressed={pressed}
           setPressed={setPressed}
           elementId={props.id}
+          fetchUserExp={props.fetchUserExp}
         />
       )}
     <hr className="mt-1 mb-2" />

@@ -1,8 +1,11 @@
 import { Button, Modal , Form } from "react-bootstrap"
 import { useState, useEffect } from "react"
 import { Link } from "react-router-dom"
+import { useParams } from "react-router"
 
 const ExperiencePopUp = (props) => {
+
+    const params = useParams();
 
     const [closePop, setclosePop] = useState(props.pressed)
     const [jobobj, setJobObj] = useState([])
@@ -50,6 +53,7 @@ const ExperiencePopUp = (props) => {
               }
 
               )
+              props.fetchUserExp(params.id)
               
         } catch (error) {
             console.log(error)

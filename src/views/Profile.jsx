@@ -10,6 +10,8 @@ const Profile = () => {
 
   const [user, setUser] = useState(null);
 
+  const [getExperience, setGetExperience] = useState([]);
+
   const fetchUser = async (id) => {
     try {
       let response = await fetch(
@@ -40,8 +42,8 @@ const Profile = () => {
     <Container style={{ marginTop: "100px" }}>
       <Row>
         <Col md={8} style={{ height: "100%" }}>
-          {user && <Jumbo fetchUser={fetchUser} user={user} />}
-          {user && <ExperienceList user={user} />}
+          {user && <Jumbo getExperience={getExperience} setGetExperience={setGetExperience} fetchUser={fetchUser} user={user} />}
+          {user && <ExperienceList getExperience={getExperience} setGetExperience={setGetExperience} user={user} />}
         </Col>
 
         <Col md={4}>

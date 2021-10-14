@@ -2,6 +2,7 @@ import { Button, Modal, Form } from "react-bootstrap";
 import { useState } from "react";
 
 const AddJobPosition = (props) => {
+
   const [userExp, setUserExp] = useState({
     role: "",
     company: "",
@@ -35,11 +36,39 @@ const AddJobPosition = (props) => {
           },
         }
       );
+      if(response.ok) {
+      const data = await response.json()
+
       props.setShow(false);
+      fetchUserExp()
+      }
+    
     } catch (error) {
       console.log(error);
     }
   };
+
+
+  const fetchUserExp = async () => {
+    try {
+      let response = await fetch(
+        `https://striveschool-api.herokuapp.com/api/profile/616434dda890cc0015cf07f0/experiences`,
+        {
+          headers: {
+            Authorization:
+              "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MTY0MzRkZGE4OTBjYzAwMTVjZjA3ZjAiLCJpYXQiOjE2MzM5NTcwODUsImV4cCI6MTYzNTE2NjY4NX0.0KiKm3Nj5tYFKqs2AZK3KMWJf7ldhr1wmccH_VdoyjU",
+          },
+        }
+      );
+      if (response.ok) {
+        let data = await response.json();
+        props.setGetExperience(data);
+      }
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
 
   return (
     <>

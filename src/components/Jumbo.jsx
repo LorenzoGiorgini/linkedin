@@ -52,7 +52,7 @@ const Jumbo = (props) => {
             <input type="file" onChange={TargetFile}/>
             <button onClick={submitFile}>Submit</button>
           </div>
-          {params.id === "me" /*  || params.id ==="616434dda890cc0015cf07f0" */ && <PopUp fetchUser={props.fetchUser} obj={props.user} />}
+          {params.id === "me" /*  || params.id ==="616434dda890cc0015cf07f0" */ && <PopUp getExperience={props.getExperience} setGetExperience={props.setGetExperience} fetchUser={props.fetchUser} obj={props.user} />}
         </div>
         <Row>
           <Col md={8} className="color">

@@ -51,6 +51,8 @@ const PopUp = (props) => {
     }
   };
 
+  
+
   return (
     <>
       <AddJobPosition
@@ -58,6 +60,8 @@ const PopUp = (props) => {
         setLgShow={setLgShow}
         show={show}
         setShow={setShow}
+        getExperience={props.getExperience} 
+        setGetExperience={props.setGetExperience}
       />
       <div className="pencil" onClick={() => setLgShow(true)}>
         <svg

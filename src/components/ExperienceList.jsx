@@ -2,14 +2,14 @@ import { useState, useEffect } from "react";
 import { Row, Col } from "react-bootstrap";
 import SingleExperience from "./SingleExperience";
 import { useParams } from "react-router";
-
 import { Plus } from "react-bootstrap-icons";
 
 const ExperienceList = (props) => {
 
   
   const params = useParams();
-  const [getExperience, setGetExperience] = useState([]);
+  
+  /* const [getExperience, setGetExperience] = useState([]); */
   
   const fetchUserExp = async () => {
     try {
@@ -24,7 +24,7 @@ const ExperienceList = (props) => {
       );
       if (response.ok) {
         let data = await response.json();
-        setGetExperience(data);
+        props.setGetExperience(data);
       }
     } catch (error) {
       console.log(error);
@@ -36,7 +36,7 @@ const ExperienceList = (props) => {
   }, [props.user._id]);
 
   return (
-    getExperience.length > 0 && (
+    props.getExperience.length > 0 && (
       <>
         <Row md={8} className="experience-list-con mr-0 ml-0">
           <Col>
@@ -47,7 +47,7 @@ const ExperienceList = (props) => {
                 <h2 style={{fontSize: "20px"}}>Experience</h2>
                 {params.id === "me" && <Plus id="plus-icon" style={{fontSize:"35px"}} />}
               </div>
-              {getExperience.map((element) => (
+              {props.getExperience.map((element) => (
                 <SingleExperience
                   role={element.role}
                   location={element.area}
@@ -55,6 +55,7 @@ const ExperienceList = (props) => {
                   company={element.company}
                   desc={element.description}
                   id={element._id}
+                  fetchUserExp={fetchUserExp}
                 />
                 ))}
               </Col>
