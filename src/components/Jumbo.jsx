@@ -2,38 +2,41 @@ import "@fortawesome/fontawesome-free/css/all.css";
 import { Col, Row } from "react-bootstrap";
 import PopUp from "./PopUp";
 import { useParams } from "react-router";
-import Axios from "axios";
+import { useState , useEffect } from "react";
 
 const Jumbo = (props) => {
 
   const params = useParams();
 
 
-  let formData = new FormData();
+  const [ image , setImage ] = useState(null)
 
   const TargetFile = (e) => {
-    console.log("Event", e.target.files);
+    console.log("Event", e.target.files[0]);
     if (e.target && e.target.files[0]) {
-      formData.append("file", e.target.files[0]);
+      setImage("file", e.target.files[0]);
     }
   };
 
-  const submitFile = () => {
-    Axios.post("https://striveschool-api.herokuapp.com/api/profile/616434dda890cc0015cf07f0/picture", {
-      formData
-    }, {
-      headers: {
-        Authorization:
-        "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MTY0MzRkZGE4OTBjYzAwMTVjZjA3ZjAiLCJpYXQiOjE2MzM5NTcwODUsImV4cCI6MTYzNTE2NjY4NX0.0KiKm3Nj5tYFKqs2AZK3KMWJf7ldhr1wmccH_VdoyjU",
-        "Content-type": "application/json",
-      }
-    })
-    .then((response) => {
-      console.log(response);
-    })
-    .catch((error) => {
-      console.log(error);
-    });
+  const submitFile = async () => {
+    try {
+      let formData = new FormData();
+
+      formData.append("profile" , image)
+      let response = await fetch("https://striveschool-api.herokuapp.com/api/profile/616434dda890cc0015cf07f0/picture" , 
+        {
+          body: formData,
+          method: "POST",
+          headers: {
+            Authorization:
+            "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MTY0MzRkZGE4OTBjYzAwMTVjZjA3ZjAiLCJpYXQiOjE2MzM5NTcwODUsImV4cCI6MTYzNTE2NjY4NX0.0KiKm3Nj5tYFKqs2AZK3KMWJf7ldhr1wmccH_VdoyjU",
+          }
+        }
+      )
+      console.log(response)
+    } catch (error) {
+      console.log(error)
+    }
   };
 
   return (
