@@ -3,8 +3,7 @@ import { useState } from "react";
 import { useParams } from "react-router";
 
 const AddJobPosition = (props) => {
-
-  const params = useParams()
+  const params = useParams();
 
   const [userExp, setUserExp] = useState({
     role: "",
@@ -39,18 +38,16 @@ const AddJobPosition = (props) => {
           },
         }
       );
-      if(response.ok) {
-        let data = await response.json()
-        submitFile(data._id)
+      if (response.ok) {
+        let data = await response.json();
+        await submitFile(data._id);
         props.setShow(false);
-        setTimeout(() => (fetchUserExp()) , 1000);
+        setTimeout(() => fetchUserExp(), 1000);
       }
-    
     } catch (error) {
       console.log(error);
     }
   };
-
 
   const fetchUserExp = async () => {
     try {
@@ -78,7 +75,6 @@ const AddJobPosition = (props) => {
     console.log("Event", e.target.files[0]);
     if (e.target && e.target.files[0]) {
       setImage(e.target.files[0]);
-      
     }
   };
 
@@ -87,7 +83,6 @@ const AddJobPosition = (props) => {
 
     formData.append("experience", image);
     try {
-      
       let response = await fetch(
         `https://striveschool-api.herokuapp.com/api/profile/616434dda890cc0015cf07f0/experiences/${id}/picture`,
         {
@@ -104,7 +99,6 @@ const AddJobPosition = (props) => {
       console.log(error);
     }
   };
-
 
   return (
     <>

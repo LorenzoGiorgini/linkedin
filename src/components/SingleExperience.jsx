@@ -9,7 +9,7 @@ const SingleExperience = (props) => {
   const params = useParams();
   
   const [pressed, setPressed] = useState(false)
-
+console.log({props})
   return (
     <>
       <Row id="experience-single-row">

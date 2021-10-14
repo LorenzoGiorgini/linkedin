@@ -20,7 +20,7 @@ function App() {
           <Route path="/feed/" exact component={Home} />
           <Route render={() => <Redirect to="/feed/" />} />
         </Switch>
-        <Footer />
+        
       </Router>
     </>
   );
