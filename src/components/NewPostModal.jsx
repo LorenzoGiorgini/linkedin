@@ -62,7 +62,8 @@ const NewPostModal = ({ fetchPosts , posts }) => {
 
       let formData = new FormData();
 
-      formData.append("experience", image);
+      formData.append("post", image);
+
       let response = await fetch(
         `https://striveschool-api.herokuapp.com/api/posts/`,
         {
