@@ -13,9 +13,9 @@ const SingleExperience = (props) => {
   return (
     <>
       <Row id="experience-single-row">
-        <Col xs={2}>
+        <Col xs={2} style={{display: "flex" , justifyContent: "center" , alignItems: "center"}}>
           {/* Image pre fixe and dynamic */}
-          {props.img ? (<Image src={props.img} />) : (<Image src="https://media-exp1.licdn.com/dms/image/C4D0BAQFFQIjyDsOK0w/company-logo_200_200/0/1593351903670?e=2159024400&v=beta&t=3Apyi9gdHHpG2I_OafZnwPIUp5VatncZQiXoIp0QPlk" />)}
+          {props.img ? (<Image src={props.img} style={{width:"60px" , height:"60px"}} />) : (<Image src="https://media-exp1.licdn.com/dms/image/C4D0BAQFFQIjyDsOK0w/company-logo_200_200/0/1593351903670?e=2159024400&v=beta&t=3Apyi9gdHHpG2I_OafZnwPIUp5VatncZQiXoIp0QPlk" style={{width:"60px" , height:"60px"}} />)}
           
         </Col>
         <Col xs={10}>

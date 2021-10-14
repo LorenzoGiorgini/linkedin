@@ -49,9 +49,9 @@ const Jumbo = (props) => {
         <div className="image-container">
           <div className="img-profile-container">
             <img className="img-profile" src={props.user.image} />
-            <input type="file" onChange={TargetFile}/>
-            <button onClick={submitFile}>Submit</button>
           </div>
+          <input type="file" onChange={TargetFile}/>
+          <button onClick={submitFile}>Submit</button>
           {params.id === "me" /*  || params.id ==="616434dda890cc0015cf07f0" */ && <PopUp getExperience={props.getExperience} setGetExperience={props.setGetExperience} fetchUser={props.fetchUser} obj={props.user} />}
         </div>
         <Row>
