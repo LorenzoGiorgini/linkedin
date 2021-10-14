@@ -14,7 +14,7 @@ const SingleExperience = (props) => {
     <>
       <Row id="experience-single-row">
         <Col xs={2}>
-          <Image src="https://coursereport-s3-production.global.ssl.fastly.net/uploads/school/logo/1045/original/Strive_-_logosquareblack.png" />
+          <Image src={props.img} />
         </Col>
         <Col xs={10}>
           <p style={{display:"flex" , justifyContent: "space-between"}}>
