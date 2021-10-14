@@ -1,13 +1,12 @@
 import { useState } from "react";
 import { Alert, Button, Col, Form, Modal, Row } from "react-bootstrap";
+
 import "../CssStyles/NewPost.css";
 
-const NewPostModal = ({ fetchPosts , posts }) => {
-
-
+const NewPostModal = ({ fetchPosts, posts, setPosts }) => {
   const [show, setShow] = useState(false);
   const [newpost, setNewPost] = useState(null);
-  const [ imagePost , setImagePost ] = useState(null)
+  const [imagePost, setImagePost] = useState(null);
 
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
@@ -18,7 +17,6 @@ const NewPostModal = ({ fetchPosts , posts }) => {
       [propertyName]: value,
     });
   };
-
 
   const makeNewPost = async () => {
     try {
@@ -36,16 +34,21 @@ const NewPostModal = ({ fetchPosts , posts }) => {
       );
       if (response.ok) {
         <Alert>post successfull</Alert>;
-        fetchPosts();
+        let res = await response.json()
+         console.log(res)
+         console.log(res._id)
+         submitFile(res._id)
+        console.log(posts);
+        // setPosts(res)
         setShow(false);
         console.log(newpost);
-        submitFile()
+        console.log(posts._id);
+        // submitFile(posts._id[0])
       }
     } catch (error) {
       console.log(error);
     }
   };
-
 
   const [image, setImage] = useState(null);
 
@@ -53,19 +56,20 @@ const NewPostModal = ({ fetchPosts , posts }) => {
     console.log("Event", e.target.files[0]);
     if (e.target && e.target.files[0]) {
       setImage(e.target.files[0]);
-      setImagePost(e.target.files[0])
+      setImagePost(e.target.files[0]);
     }
   };
 
-  const submitFile = async () => {
-    try {
+  const submitFile = async (id) => {
+    let formData = new FormData();
 
+    formData.append("post", image);
+    try {
       let formData = new FormData();
 
       formData.append("post", image);
-
       let response = await fetch(
-        `https://striveschool-api.herokuapp.com/api/posts/`,
+        `https://striveschool-api.herokuapp.com/api/posts/${id}`,
         {
           body: formData,
           method: "POST",
@@ -116,7 +120,7 @@ const NewPostModal = ({ fetchPosts , posts }) => {
                 placeholder="What do you want to talk about?"
               />
             </Form.Group>
-            <input type="file" onChange={TargetFile}/>
+            <input type="file" onChange={TargetFile} />
           </Form>
         </Modal.Body>
         <Modal.Footer>
