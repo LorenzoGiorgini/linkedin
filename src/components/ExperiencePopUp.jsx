@@ -32,7 +32,7 @@ const ExperiencePopUp = (props) => {
         let data = await response.json();
         setJobObj(data);
         console.log(data);
-        submitFile(data._id)
+        
       }
     } catch (error) {
       console.log(error);
@@ -71,6 +71,10 @@ const ExperiencePopUp = (props) => {
           },
         }
       );
+      if(response.ok) {
+        submitFile(jobobj._id)
+
+      }
     } catch (error) {
       console.log(error);
     }
