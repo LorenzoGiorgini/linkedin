@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import { Alert, Button, Col, Form, Modal, Row } from "react-bootstrap";
 
-const EditPostModule = ({ show, onHide, id }) => {
+const EditPostModule = ({ show, onHide, id , fetchPosts , profile }) => {
 
 const [post, setPost] = useState([])
 
@@ -20,6 +20,7 @@ const [post, setPost] = useState([])
         let data = await response.json();
         console.log("Data", data);
         setPost(data);
+        
       }
     } catch (error) {
       console.log(error);
@@ -43,6 +44,8 @@ const [post, setPost] = useState([])
           },
         }
       );
+      onHide()
+      fetchPosts()
     } catch (error) {
       console.log(error);
     }
@@ -67,8 +70,9 @@ const [post, setPost] = useState([])
           <Modal.Title>Create a post</Modal.Title>
         </Modal.Header>
         <Modal.Body>
-          <div className="d-flex profile-image-container">
-            <img src="" alt="profile" className="w-100"></img>
+          <div className="d-flex align-items-center mb-3 profile-image-container">
+            <img src={profile.image} alt="profile" className="profile-img mr-3"></img>
+            <h5>{profile.name}{" "}{profile.surname}</h5>
           </div>
           <Form
             id="post-form"
@@ -102,9 +106,7 @@ const [post, setPost] = useState([])
           </Form>
         </Modal.Body>
         <Modal.Footer>
-          <Button variant="primary" type="submit" form="post-form" onClick={editSelectedPost}>
-            Edit Post
-          </Button>
+          <div className="button-blue" style={{color:"white"}} onClick={editSelectedPost}>Save</div>
         </Modal.Footer>
       </Modal>
     </>

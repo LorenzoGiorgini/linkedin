@@ -3,7 +3,6 @@ import {
   Nav,
   FormControl,
   Form,
-  Button,
   NavDropdown,
   Container,
   Col,
@@ -12,8 +11,39 @@ import "@fortawesome/fontawesome-free/css/all.css";
 import "bootstrap-icons/font/bootstrap-icons.css";
 import logo from "../assets/linkedin.png";
 import { Link } from "react-router-dom";
+import { useState , useEffect } from "react";
 
 const NavBar = () => {
+
+  const [profile, setProfile] = useState({});
+
+  const fetchProfile = async () => {
+    try {
+      let response = await fetch(
+        `https://striveschool-api.herokuapp.com/api/profile/me`,
+        {
+          headers: {
+            Authorization:
+              "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MTY0MzRkZGE4OTBjYzAwMTVjZjA3ZjAiLCJpYXQiOjE2MzM5NTcwODUsImV4cCI6MTYzNTE2NjY4NX0.0KiKm3Nj5tYFKqs2AZK3KMWJf7ldhr1wmccH_VdoyjU",
+          },
+        }
+      );
+      if (response.ok) {
+        let data = await response.json()
+        setProfile(data)
+      }
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
+  useEffect(() => {
+    fetchProfile()
+  }, [])
+
+
+
+
   return (
       <Navbar bg="light" expand="lg" className="row" fixed="top">
         <Container>
@@ -61,18 +91,25 @@ const NavBar = () => {
             >
               <i class="fas fa-bell"></i>Notications
             </Nav.Link>
-            <NavDropdown title="Me" id="basic-nav-dropdown">
-              <NavDropdown.Item>
-                <div className="row">
-                  <div className="col-2">
-                    <img src="" alt="" />
+            <div className="d-flex flex-column align-items-center">
+
+            
+            <img src={profile.image} alt=" " className="profile-img ml-1 mr-2" style={{width:"25px" , height:"25px"}} />
+            <NavDropdown title="Me" style={{fontSize:"13px"}} id="basic-nav-dropdown">
+              
+                <div className="d-flex">
+                  <div>
+                    <img src={profile.image} alt=" " className="profile-img ml-1 mr-2" style={{width:"40px" , height:"40px"}} />
                   </div>
-                  <div className="col-9">
-                    <p>username</p>
+                  <div className="d-flex flex-column">
+                    <span className="span-big" style={{fontSize:"14px"}}>{profile.name}{" "}{profile.surname}</span>
+                    <span className="span-small text-muted">{profile.title}</span>
                   </div>
                 </div>
+              <NavDropdown.Item>
+                
                 <Link to="/profile/me">
-                  <Button href="#action/3.1" variant="outline-primary" block>View Profile</Button>
+                  <div className="button-blue" style={{width:"100%"}}>View Profile</div>
                 </Link>
               </NavDropdown.Item>
               <NavDropdown.Item href="#action/3.2">
@@ -84,6 +121,7 @@ const NavBar = () => {
                 Separated link
               </NavDropdown.Item>
             </NavDropdown>
+            </div>
             <NavDropdown title="Work" id="basic-nav-dropdown">
               <NavDropdown.Item href="#action/3.1">
                 View Profile
@@ -97,6 +135,7 @@ const NavBar = () => {
                 Separated link
               </NavDropdown.Item>
             </NavDropdown>
+            
           </Nav>
         </Navbar.Collapse>
         </Container>

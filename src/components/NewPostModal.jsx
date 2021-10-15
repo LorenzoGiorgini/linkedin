@@ -40,7 +40,7 @@ const NewPostModal = ({ fetchPosts, posts, setPosts, profile }) => {
         setShow(false);
         console.log(newpost);
         console.log(posts._id);
-        setTimeout(() => (fetchPosts()) , 1000);
+        setTimeout(() => (fetchPosts()) , 1500);
         
       }
     } catch (error) {
@@ -122,12 +122,7 @@ const NewPostModal = ({ fetchPosts, posts, setPosts, profile }) => {
           </Form>
         </Modal.Body>
         <Modal.Footer>
-          <Button variant="secondary" onClick={handleClose}>
-            Close
-          </Button>
-          <Button variant="primary" onClick={makeNewPost}>
-            Save Changes
-          </Button>
+          <div className="button-blue" style={{width:"62px" , height:"32px"}} onClick={makeNewPost}>Post</div>
         </Modal.Footer>
       </Modal>
     </>

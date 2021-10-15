@@ -4,13 +4,16 @@ import SideBar from "../components/SideBar";
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import ExperienceList from "../components/ExperienceList";
+import Footer from "../components/Footer";
 
 const Profile = () => {
   const params = useParams();
 
-  const [user, setUser] = useState(null);
+  
 
   const [getExperience, setGetExperience] = useState([]);
+
+  const [user, setUser] = useState(null);
 
   const fetchUser = async (id) => {
     try {
@@ -39,6 +42,7 @@ const Profile = () => {
   }, []);
 
   return (
+    <>
     <Container style={{ marginTop: "100px" }}>
       <Row>
         <Col md={8} style={{ height: "100%" }}>
@@ -51,6 +55,8 @@ const Profile = () => {
         </Col>
       </Row>
     </Container>
+    <Footer/>
+    </>
   );
 };
 
