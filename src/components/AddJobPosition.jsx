@@ -42,7 +42,7 @@ const AddJobPosition = (props) => {
         let data = await response.json();
         await submitFile(data._id);
         props.setShow(false);
-        setTimeout(() => fetchUserExp(), 1500);
+        setTimeout(() => fetchUserExp(), 2000);
       }
     } catch (error) {
       console.log(error);

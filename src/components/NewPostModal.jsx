@@ -42,7 +42,7 @@ const NewPostModal = ({ fetchPosts, posts, setPosts, profile }) => {
         setShow(false);
         console.log(newpost);
         console.log(posts._id);
-        setTimeout(() => (fetchPosts()) , 1500);
+        setTimeout(() => (fetchPosts()) , 2000);
         
       }
     } catch (error) {
