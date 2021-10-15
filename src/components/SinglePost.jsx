@@ -21,7 +21,7 @@ const SinglePost = (props) => {
           }
 
           )
-          
+          props.fetchPosts()
     } catch (error) {
         console.log(error)
     }
@@ -51,11 +51,8 @@ const SinglePost = (props) => {
             </div>
             <div className="col-2 mt-3">
           <Dropdown>
-            <Dropdown.Toggle
-              style={{ background: "transparent", color: "black" }}
-              id="dropdown-basic"
-            >
-              ...
+            <Dropdown.Toggle className="dropdown-styled">
+              <i class="bi bi-three-dots" style={{fontSize:"25px"}} ></i>
             </Dropdown.Toggle>
 
             {props.element.user._id === "616434dda890cc0015cf07f0" ? (
@@ -67,6 +64,8 @@ const SinglePost = (props) => {
                   show={show}
                   onHide={handleClose}
                   id={props.element._id}
+                  fetchPosts={props.fetchPosts}
+                  profile={props.profile}
                 />
                 <Dropdown.Item href="#/action-2" onClick={deleteSelectedPost}>Delete Post</Dropdown.Item>
                 <Dropdown.Item href="#/action-1">Save</Dropdown.Item>
@@ -89,10 +88,10 @@ const SinglePost = (props) => {
         <div className="translation">See Translation</div>
         <hr />
         <div className="d-flex justify-content-around">
-          <span>Like</span>
-          <span>Comment</span>
-          <span>Share</span>
-          <span>Send</span>
+          <span className="feed-buttons"><i class="bi bi-hand-thumbs-up mr-2"></i>Like</span>
+          <span className="feed-buttons"><i class="bi bi-chat-text mr-2"></i>Comment</span>
+          <span className="feed-buttons"><i class="bi bi-share-fill mr-2"></i>Share</span>
+          <span className="feed-buttons"><i class="bi bi-cursor-fill mr-2"></i>Send</span>
         </div>
       </div>
     </div>

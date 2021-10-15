@@ -9,11 +9,11 @@ import Footer from "../components/Footer";
 const Profile = () => {
   const params = useParams();
 
-  const [user, setUser] = useState(null);
+  
 
   const [getExperience, setGetExperience] = useState([]);
 
-  
+  const [user, setUser] = useState(null);
 
   const fetchUser = async (id) => {
     try {

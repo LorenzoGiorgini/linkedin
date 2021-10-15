@@ -42,7 +42,7 @@ const AddJobPosition = (props) => {
         let data = await response.json();
         await submitFile(data._id);
         props.setShow(false);
-        setTimeout(() => fetchUserExp(), 1000);
+        setTimeout(() => fetchUserExp(), 1500);
       }
     } catch (error) {
       console.log(error);
@@ -80,7 +80,6 @@ const AddJobPosition = (props) => {
 
   const submitFile = async (id) => {
     let formData = new FormData();
-
     formData.append("experience", image);
     try {
       let response = await fetch(
