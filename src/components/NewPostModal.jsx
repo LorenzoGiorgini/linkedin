@@ -35,14 +35,14 @@ const NewPostModal = ({ fetchPosts, posts, setPosts, profile }) => {
       if (response.ok) {
         <Alert>post successfull</Alert>;
         let res = await response.json()
-         console.log(res)
-         console.log(res._id)
-         submitFile(res._id)
+         
+         await submitFile(res._id)
         console.log(posts);
         setShow(false);
         console.log(newpost);
         console.log(posts._id);
-        setTimeout(() => (fetchPosts()) , 2000);
+        fetchPosts()
+        // setTimeout(() => (fetchPosts()) , 2000);
         
       }
     } catch (error) {
