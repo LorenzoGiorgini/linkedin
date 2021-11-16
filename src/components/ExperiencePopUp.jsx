@@ -19,7 +19,7 @@ const ExperiencePopUp = (props) => {
   const fetchSelectedJob = async () => {
     try {
       let response = await fetch(
-        `https://strive-linkedin.herokuapp.com/api/profile/me/experiences/${props.elementId}`,
+        `https://strive-linkedin.herokuapp.com/profile/me/experiences/${props.elementId}`,
         {
           method: "GET"
         }
@@ -37,7 +37,7 @@ const ExperiencePopUp = (props) => {
   const deleteSelectedJob = async () => {
     try {
       let response = await fetch(
-        `https://strive-linkedin.herokuapp.com/api/profile/me/experiences/${props.elementId}`,
+        `https://strive-linkedin.herokuapp.com/profile/me/experiences/${props.elementId}`,
         {
           method: "DELETE"
         }
@@ -51,7 +51,7 @@ const ExperiencePopUp = (props) => {
   const editSelectedJob = async () => {
     try {
       let response = await fetch(
-        `https://strive-linkedin.herokuapp.com/api/profile/me/experiences/${props.elementId}`,
+        `https://strive-linkedin.herokuapp.com/profile/me/experiences/${props.elementId}`,
         {
           method: "PUT",
           body: JSON.stringify(jobobj),
@@ -89,7 +89,7 @@ const ExperiencePopUp = (props) => {
 
       formData.append("experience", image);
       let response = await fetch(
-        `https://strive-linkedin.herokuapp.com/api/profile/616434dda890cc0015cf07f0/experiences/${id}/picture`,
+        `https://strive-linkedin.herokuapp.com/profile/616434dda890cc0015cf07f0/experiences/${id}/picture`,
         {
           body: formData,
           method: "POST"

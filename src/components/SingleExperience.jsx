@@ -22,7 +22,7 @@ console.log({props})
           <p style={{display:"flex" , justifyContent: "space-between"}}>
             {props.role}
             {
-            params.id === "me" && 
+            params.id === "619234e538541a787a13c554" && 
             <div className="pencil" onClick={() => setPressed(true)}>
               <svg
                 xmlns="http://www.w3.org/2000/svg"

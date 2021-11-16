@@ -12,7 +12,7 @@ const Footer = () => {
         <Row className="footer liItems">
           <Col xs={2}>
             <ul className="liItems">
-              <li>ABout</li>
+              <li>About</li>
               <li>Community Guidelines</li>
               <li>About</li>
               <li>Sales Solutions</li>
