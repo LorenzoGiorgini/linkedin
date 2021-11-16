@@ -97,7 +97,7 @@ const NavBar = () => {
               
                 <div className="d-flex">
                   <div>
-                    {/* <img src={profile[0].image} alt=" " className="profile-img ml-1 mr-2" style={{width:"40px" , height:"40px"}} /> */}
+                     <img src={profile.image} alt=" " className="profile-img ml-1 mr-2" style={{width:"40px" , height:"40px"}} /> 
                   </div>
                   <div className="d-flex flex-column">
                     <span className="span-big" style={{fontSize:"14px"}}>{profile.name}{" "}{profile.surname}</span>
