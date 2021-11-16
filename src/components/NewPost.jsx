@@ -18,11 +18,11 @@ const NewPost = (props) => {
           <img src={props.profile.image} alt=" "  className="profile-img"/>
 
           <div className="feedpost-section">
-              {/* Put the OnClick with handleShow func from Post Modal that you implemented  */}
+              
             
             <NewPostModal profile={props.profile} setPosts={props.setPosts} posts={props.posts} fetchPosts={props.fetchPosts}/>
           </div>
-          {/* Here goes the Modal call with its props <PostModal show={show} onHide={handleClose} /> */}
+         
         </div>
         <div className="d-flex justify-content-between feedpost-icons">
           <div className="btn-feed">

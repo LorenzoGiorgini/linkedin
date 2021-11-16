@@ -1,5 +1,3 @@
-// Will need to import the link to profile later
-// import { Link } from "react-router-dom"; 
 import "../CssStyles/LeftSideBarCardProfile.css"
 
 const LeftSideBarCardProfile = ({profile}) => {
