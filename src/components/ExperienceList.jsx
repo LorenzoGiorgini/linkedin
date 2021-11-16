@@ -13,7 +13,7 @@ const ExperienceList = (props) => {
   
   const fetchUserExp = async () => {
     try {
-      let response = await fetch(`https://striveschool-api.herokuapp.com/api/profile/${props.user._id}/experiences`,);
+      let response = await fetch(`https://strive-linkedin.herokuapp.com/api/profile/${props.user._id}/experiences`,);
       if (response.ok) {
         let data = await response.json();
         props.setGetExperience(data);
