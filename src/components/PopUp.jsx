@@ -33,13 +33,11 @@ const PopUp = (props) => {
 
     try {
       let response = await fetch(
-        "https://striveschool-api.herokuapp.com/api/profile/",
+        "https://strive-linkedin.herokuapp.com/profile/619234e538541a787a13c554",
         {
           method: "PUT",
           body: JSON.stringify(oldUser),
           headers: {
-            Authorization:
-              "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MTY0MzRkZGE4OTBjYzAwMTVjZjA3ZjAiLCJpYXQiOjE2MzM5NTcwODUsImV4cCI6MTYzNTE2NjY4NX0.0KiKm3Nj5tYFKqs2AZK3KMWJf7ldhr1wmccH_VdoyjU",
             "Content-type": "application/json",
           },
         }

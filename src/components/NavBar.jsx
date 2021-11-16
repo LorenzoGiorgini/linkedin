@@ -108,7 +108,7 @@ const NavBar = () => {
                 </div>
               <NavDropdown.Item>
                 
-                <Link to="/profile/me">
+                <Link to="/profile/619234e538541a787a13c554">
                   <div className="button-blue" style={{width:"100%"}}>View Profile</div>
                 </Link>
               </NavDropdown.Item>
