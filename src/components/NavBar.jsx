@@ -20,16 +20,14 @@ const NavBar = () => {
   const fetchProfile = async () => {
     try {
       let response = await fetch(
-        `https://striveschool-api.herokuapp.com/api/profile/me`,
-        {
-          headers: {
-            Authorization:
-              "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MTY0MzRkZGE4OTBjYzAwMTVjZjA3ZjAiLCJpYXQiOjE2MzM5NTcwODUsImV4cCI6MTYzNTE2NjY4NX0.0KiKm3Nj5tYFKqs2AZK3KMWJf7ldhr1wmccH_VdoyjU",
-          },
-        }
+        `https://strive-linkedin.herokuapp.com/profile/619234e538541a787a13c554
+
+        `
       );
       if (response.ok) {
         let data = await response.json()
+
+        console.log(data)
         setProfile(data)
       }
     } catch (error) {
@@ -99,7 +97,7 @@ const NavBar = () => {
               
                 <div className="d-flex">
                   <div>
-                    <img src={profile.image} alt=" " className="profile-img ml-1 mr-2" style={{width:"40px" , height:"40px"}} />
+                     <img src={profile.image} alt=" " className="profile-img ml-1 mr-2" style={{width:"40px" , height:"40px"}} /> 
                   </div>
                   <div className="d-flex flex-column">
                     <span className="span-big" style={{fontSize:"14px"}}>{profile.name}{" "}{profile.surname}</span>

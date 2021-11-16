@@ -21,29 +21,20 @@ const NewPostModal = ({ fetchPosts, posts, setPosts, profile }) => {
   const makeNewPost = async () => {
     try {
       let response = await fetch(
-        "https://striveschool-api.herokuapp.com/api/posts/",
+        "https://strive-linkedin.herokuapp.com/posts/619234e538541a787a13c554",
         {
           method: "POST",
           body: JSON.stringify(newpost),
           headers: {
-            Authorization:
-              "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MTY0MzRkZGE4OTBjYzAwMTVjZjA3ZjAiLCJpYXQiOjE2MzM5NTcwODUsImV4cCI6MTYzNTE2NjY4NX0.0KiKm3Nj5tYFKqs2AZK3KMWJf7ldhr1wmccH_VdoyjU",
-            "Content-type": "application/json",
-          },
+            "Content-type": "application/json"
+          }
         }
       );
       if (response.ok) {
-        <Alert>post successfull</Alert>;
         let res = await response.json()
-         
-         await submitFile(res._id)
-        console.log(posts);
+        await submitFile(res.data._id)
         setShow(false);
-        console.log(newpost);
-        console.log(posts._id);
-        fetchPosts()
-        // setTimeout(() => (fetchPosts()) , 2000);
-        
+        fetchPosts()   
       }
     } catch (error) {
       console.log(error);
@@ -53,7 +44,6 @@ const NewPostModal = ({ fetchPosts, posts, setPosts, profile }) => {
   const [image, setImage] = useState(null);
 
   const TargetFile = (e) => {
-    console.log("Event", e.target.files[0]);
     if (e.target && e.target.files[0]) {
       setImage(e.target.files[0]);
       setImagePost(e.target.files[0]);
@@ -61,25 +51,17 @@ const NewPostModal = ({ fetchPosts, posts, setPosts, profile }) => {
   };
 
   const submitFile = async (id) => {
-    let formData = new FormData();
-
-    formData.append("post", image);
     try {
       let formData = new FormData();
 
-      formData.append("post", image);
+      formData.append("image", image);
       let response = await fetch(
-        `https://striveschool-api.herokuapp.com/api/posts/${id}`,
+        `https://strive-linkedin.herokuapp.com/posts/${id}`,
         {
           body: formData,
-          method: "POST",
-          headers: {
-            Authorization:
-              "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MTY0MzRkZGE4OTBjYzAwMTVjZjA3ZjAiLCJpYXQiOjE2MzM5NTcwODUsImV4cCI6MTYzNTE2NjY4NX0.0KiKm3Nj5tYFKqs2AZK3KMWJf7ldhr1wmccH_VdoyjU",
-          },
+          method: "POST"
         }
       );
-      console.log(response);
     } catch (error) {
       console.log(error);
     }
