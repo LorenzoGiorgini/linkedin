@@ -14,8 +14,8 @@ const Profile = () => {
 
   const fetchPosts = async () => {
     try {
-      let response = await fetch(
-        `https://strive-linkedin.herokuapp.com/posts/`,);
+      let response = await fetch(`https://strive-linkedin.herokuapp.com/posts/`);
+
       if (response.ok) {
         let data = await response.json();
         setPosts(data.data);
@@ -27,8 +27,9 @@ const Profile = () => {
 
   const fetchProfile = async () => {
     try {
-      let response = await fetch(
-        `https://strive-linkedin.herokuapp.com/profile/619234e538541a787a13c554`);
+
+      let response = await fetch(`https://strive-linkedin.herokuapp.com/profile/619234e538541a787a13c554`);
+
       if (response.ok) {
         let data = await response.json()
         setProfile(data)

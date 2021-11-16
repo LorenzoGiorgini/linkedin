@@ -32,12 +32,13 @@ const PopUp = (props) => {
     e.preventDefault();
 
     try {
-      let response = await fetch(
-        "https://strive-linkedin.herokuapp.com/profile/",
+      let response = await fetch("https://strive-linkedin.herokuapp.com/profile/619234e538541a787a13c554",
         {
           method: "PUT",
           body: JSON.stringify(oldUser),
-         
+          headers: {
+            "Content-type": "application/json",
+          },
         }
       );
       setLgShow(false);
