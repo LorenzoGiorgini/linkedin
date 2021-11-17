@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import { Alert, Button, Col, Form, Modal, Row } from "react-bootstrap";
 
-const EditPostModule = ({ show, onHide, id , fetchPosts , profile }) => {
+const EditPostModule = ({ show, onHide, id , fetchPosts , user }) => {
 
 const [post, setPost] = useState([])
 
@@ -59,8 +59,8 @@ const [post, setPost] = useState([])
         </Modal.Header>
         <Modal.Body>
           <div className="d-flex align-items-center mb-3 profile-image-container">
-            <img src={profile.image} alt="profile" className="profile-img mr-3"></img>
-            <h5>{profile.name}{" "}{profile.surname}</h5>
+            <img src={user[0].image} alt="profile" className="profile-img mr-3"></img>
+            <h5>{user[0].name}{" "}{user[0].surname}</h5>
           </div>
           <Form
             id="post-form"

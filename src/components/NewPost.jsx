@@ -4,23 +4,24 @@ import "../CssStyles/NewPost.css";
 import NewPostModal from "./NewPostModal";
 
 const NewPost = (props) => {
-    // States from Post Modal
+
   const [show, setShow] = useState(false);
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
 
   return (
+    props.user[0] !== null &&
     <>
       <div className="container-post">
       <div className="padding-post">
       <section className="feedpost-section">
         <div className="d-flex">
-          <img src={props.profile.image} alt=" "  className="profile-img"/>
+          <img src={props.user[0].image} alt=" "  className="profile-img"/>
 
           <div className="feedpost-section">
               
             
-            <NewPostModal profile={props.profile} setPosts={props.setPosts} posts={props.posts} fetchPosts={props.fetchPosts}/>
+            <NewPostModal user={props.user} setUser={props.setUser} posts={props.posts} fetchPosts={props.fetchPosts}/>
           </div>
          
         </div>

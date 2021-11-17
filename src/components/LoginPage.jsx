@@ -6,14 +6,14 @@ import { BrowserRouter as Router, Route, Switch, Redirect } from "react-router-d
 
 const LoginPage = (props) => {
 
-  const [login , setLogin] = useState(null)
+  const [login , setLogin] = useState({})
 
   const fetchUser = async() => {
     try {
       const res = await fetch(`https://strive-linkedin.herokuapp.com/profile?username=${login.username}&id=${login.password}`)
       if(res.ok) {
         const user = await res.json()
-        console.log(user)
+        console.log(user[0])
         props.setUser(user)
       }
     } catch (error) {
