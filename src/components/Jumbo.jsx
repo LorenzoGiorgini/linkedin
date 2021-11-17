@@ -20,7 +20,7 @@ const Jumbo = (props) => {
           <div className="img-profile-container">
             <img className="img-profile" onClick={() => setImageModal(true)} src={props.user.image} />
           </div>
-          <ImageModal fetchUser={props.fetchUser} imageModal={imageModal} setImageModal={setImageModal} />
+          {params.id == "619234e538541a787a13c554" && <ImageModal fetchUser={props.fetchUser} imageModal={imageModal} setImageModal={setImageModal} />}
           {params.id == "619234e538541a787a13c554" && <PopUp getExperience={props.getExperience} setGetExperience={props.setGetExperience} fetchUser={props.fetchUser} obj={props.user} />}
         </div>
         <Row>
