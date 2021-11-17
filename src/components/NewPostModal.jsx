@@ -14,14 +14,15 @@ const NewPostModal = ({ fetchPosts, posts, setPosts, profile }) => {
   const handleInput = (propertyName, value) => {
     setNewPost({
       ...newpost,
-      [propertyName]: value,
+      user: "619234e538541a787a13c554",
+      [propertyName]: value
     });
   };
 
   const makeNewPost = async () => {
     try {
       let response = await fetch(
-        "https://strive-linkedin.herokuapp.com/posts/619234e538541a787a13c554",
+        "https://strive-linkedin.herokuapp.com/posts/",
         {
           method: "POST",
           body: JSON.stringify(newpost),
