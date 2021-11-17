@@ -9,8 +9,6 @@ const ExperienceList = (props) => {
   
   const params = useParams();
   
-  /* const [getExperience, setGetExperience] = useState([]); */
-  
   const fetchUserExp = async () => {
     try {
       let response = await fetch(`https://strive-linkedin.herokuapp.com/profile/${props.user._id}/experiences`);
