@@ -39,6 +39,7 @@ const ExperienceList = (props) => {
               </div>
               {props.getExperience.map((element) => (
                 <SingleExperience
+                  user={user.props}
                   role={element.role}
                   location={element.area}
                   date={element.startDate}
