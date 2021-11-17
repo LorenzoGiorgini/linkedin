@@ -6,14 +6,12 @@ import { useParams } from "react-router-dom";
 import ExperienceList from "../components/ExperienceList";
 import Footer from "../components/Footer";
 
-const Profile = () => {
+const Profile = (props) => {
   const params = useParams();
-
-  
 
   const [getExperience, setGetExperience] = useState([]);
 
-  const [user, setUser] = useState(null);
+  const [dynamicUser, setDynamicUser] = useState(null);
 
   const fetchUser = async (id) => {
     try {
@@ -21,7 +19,7 @@ const Profile = () => {
         "https://strive-linkedin.herokuapp.com/profile/" + id
       );
       let data = await response.json();
-      setUser(data);
+      setDynamicUser(data);
     } catch (error) {
       console.log(error);
     }
@@ -40,8 +38,8 @@ const Profile = () => {
     <Container style={{ marginTop: "100px" }}>
       <Row>
         <Col md={8} style={{ height: "100%" }}>
-          {user && <Jumbo getExperience={getExperience} setGetExperience={setGetExperience} fetchUser={fetchUser} user={user} />}
-          {user && <ExperienceList getExperience={getExperience} setGetExperience={setGetExperience} user={user} />}
+          {dynamicUser && <Jumbo getExperience={getExperience} setGetExperience={setGetExperience} fetchUser={fetchUser} user={props.user} dynamicUser={props.dynamicUser} />}
+          {dynamicUser && <ExperienceList getExperience={getExperience} setGetExperience={setGetExperience} user={props.user} dynamicUser={props.dynamicUser} />}
         </Col>
 
         <Col md={4}>
