@@ -4,7 +4,7 @@ import NewPost from "../components/NewPost"
 import { useState , useEffect } from "react"
 import LeftSideBarCardProfile from "../leftSideBarHome/LeftSideBarCardProfile"
 import RightSideBar from "../rightSideBarHome/RightSideBar"
-
+import NavBar from "../components/NavBar";
 
 const Profile = () => {
   
@@ -45,6 +45,8 @@ const Profile = () => {
   }, []);
 
   return (
+    <>
+    <NavBar/>
     <Container style={{ marginTop: "100px" }}>
       <Row>
         <Col xs={12} md={4} lg={2} style={{ height: "100%" }}>
@@ -60,6 +62,7 @@ const Profile = () => {
         </Col>
       </Row>
     </Container>
+    </>
   );
 };
 

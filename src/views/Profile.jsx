@@ -5,6 +5,7 @@ import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import ExperienceList from "../components/ExperienceList";
 import Footer from "../components/Footer";
+import NavBar from "../components/NavBar";
 
 const Profile = () => {
   const params = useParams();
@@ -37,6 +38,7 @@ const Profile = () => {
 
   return (
     <>
+    <NavBar/>
     <Container style={{ marginTop: "100px" }}>
       <Row>
         <Col md={8} style={{ height: "100%" }}>
