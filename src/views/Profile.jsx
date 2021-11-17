@@ -7,7 +7,7 @@ import ExperienceList from "../components/ExperienceList";
 import Footer from "../components/Footer";
 import NavBar from "../components/NavBar";
 
-const Profile = () => {
+const Profile = (props) => {
   const params = useParams();
 
   

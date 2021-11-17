@@ -19,7 +19,6 @@ function App() {
           <Route path="/profile/:id" exact render={() => <Profile user={user} setUser={setUser}/>} />
           <Route path="/feed/" exact render={() => <Home user={user} setUser={setUser}/>} />
           <Route path="/" exact render={() => <LoginPage user={user} setUser={setUser}/>} />
-
           <Route render={() => <Redirect to="/feed/" />} />
         </Switch>
       </Router>

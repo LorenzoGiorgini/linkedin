@@ -1,13 +1,21 @@
 import "../CssStyles/Login.css";
 import LoginNavBar from "../components/LoginNavBar";
 import { Link } from "react-router-dom";
+import { useState } from "react";
+import { BrowserRouter as Router, Route, Switch, Redirect } from "react-router-dom";
 
 const LoginPage = (props) => {
 
-  const fetchUser = () => {
+  const [login , setLogin] = useState(null)
+
+  const fetchUser = async() => {
     try {
-      const res = fetch()
-      
+      const res = await fetch(`https://strive-linkedin.herokuapp.com/profile?username=${login.username}&id=${login.password}`)
+      if(res.ok) {
+        const user = await res.json()
+        console.log(user)
+        props.setUser(user)
+      }
     } catch (error) {
       console.log(error)
     }
@@ -40,8 +48,8 @@ const LoginPage = (props) => {
                       </label>
                       <input
                         onChange={(e) => { 
-                          props.setUser({
-                            ...props.user,
+                          setLogin({
+                            ...login,
                             username: e.target.value
                           })
                         }}
@@ -62,8 +70,8 @@ const LoginPage = (props) => {
                       </label>
                       <input
                         onChange={(e) => { 
-                         props.setUser({
-                            ...props.user,
+                          setLogin({
+                            ...login,
                             password: e.target.value
                          })
                         }}
@@ -82,7 +90,7 @@ const LoginPage = (props) => {
                     <div className="row  remember-me d-flex justify-content-center">
                       
                         <Link to="/feed/">
-                          <div className="login-btn">
+                          <div className="login-btn" onClick={fetchUser}>
                             Log In
                           </div>
                         </Link>
