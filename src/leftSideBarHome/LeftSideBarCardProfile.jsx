@@ -1,22 +1,22 @@
 import "../CssStyles/LeftSideBarCardProfile.css"
 
-const LeftSideBarCardProfile = ({profile}) => {
+const LeftSideBarCardProfile = ({user}) => {
   return (
+    user[0] !== null &&
     <>
       <section className="home-my-profile-card mt-3">
         <div className="hero"></div>
-        {/* Link to Profile with a Link to profile/me */}
         <div className="img-holder">
           <img
             className="avatar rounded-circle"
-            src={profile.image}
+            src={user[0].image}
             alt=" "
           />
         </div>
         
 
-        <h6 className="text-center my-name">{profile.name}{" "}{profile.surname}</h6>
-        <p className="text-center my-title border-bottom pb-3">{profile.title}</p>
+        <h6 className="text-center my-name">{user[0].name}{" "}{user[0].surname}</h6>
+        <p className="text-center my-title border-bottom pb-3">{user[0].title}</p>
         <div className="views d-flex flex-column px-3 border-bottom mt-3">
           <div className="views-one d-flex justify-content-between">
             <p>Who viewed your profile</p>

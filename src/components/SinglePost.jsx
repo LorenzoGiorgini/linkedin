@@ -46,7 +46,7 @@ const SinglePost = (props) => {
               <i class="bi bi-three-dots" style={{fontSize:"25px"}} ></i>
             </Dropdown.Toggle>
 
-            {props.element.user._id === "619234e538541a787a13c554" ? (
+            {props.element.user._id === props.user[0]._id ? (
               <Dropdown.Menu>
                 <Dropdown.Item href="#/action-1" onClick={handleShow}>
                   Modify
@@ -56,7 +56,7 @@ const SinglePost = (props) => {
                   onHide={handleClose}
                   id={props.element._id}
                   fetchPosts={props.fetchPosts}
-                  profile={props.profile}
+                  user={props.user}
                 />
                 <Dropdown.Item href="#/action-2" onClick={deleteSelectedPost}>Delete Post</Dropdown.Item>
                 <Dropdown.Item href="#/action-1">Save</Dropdown.Item>
