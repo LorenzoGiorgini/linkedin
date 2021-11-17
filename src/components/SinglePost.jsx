@@ -2,6 +2,7 @@ import  Dropdown from "react-bootstrap/Dropdown";
 import "../CssStyles/Posts.css";
 import { useState } from "react";
 import EditPostModule from "./EditPostModule";
+import { Link } from "react-router-dom";
 
 const SinglePost = (props) => {
 
@@ -37,9 +38,11 @@ const SinglePost = (props) => {
             </div>
           </div>
           <div className="d-flex flex-column  mb-2 col-8 mt-3">
-            <span className="span-big">
-              {props.element.user.name} {props.element.user.surname}
-            </span>
+            <Link to={"/profile/" + props.element.user._id}>
+              <span className="span-big">
+                {props.element.user.name} {props.element.user.surname}
+              </span>
+            </Link>
 
             <span className="span-small text-muted">
               {props.element.user.title}
