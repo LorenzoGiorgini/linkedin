@@ -114,4 +114,6 @@ const NewPostModal = ({ fetchPosts, posts, setPosts, profile }) => {
   );
 };
 
+
+
 export default NewPostModal;
