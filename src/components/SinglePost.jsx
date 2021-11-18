@@ -6,6 +6,7 @@ import { Link } from "react-router-dom";
 import AddComment from "./AddComment";
 import { Row, Col } from "react-bootstrap";
 import "../CssStyles/comments.css"
+import EditComment from "./EditComment";
 
 const SinglePost = (props) => {
   // console.log("This is element", props.element);
@@ -133,7 +134,7 @@ const SinglePost = (props) => {
                 userId={props.element.user._id}
                 fetchComments={fetchComments}
               />
-              <span> Comment</span>
+              <span>Comment</span>
             </div>
             <span className="feed-buttons">
               <i class="bi bi-share-fill mr-2"></i>Share
@@ -166,8 +167,15 @@ const SinglePost = (props) => {
                   </div>
                   <div className="ml-2 py-0 comment-text">{c.comment}</div>
                   </div>
+                  <div className="d-flex ml-auto" style={{ cursor: "pointer" }}>
+                    <EditComment
+                    userId={props.element.user._id}
+                    id={props.element._id}
+                    commentId={c._id}
+                    fetchComments={fetchComments}
+                     />
+                  </div>
                 </div>
-                <div className="d-flex ml-auto"></div>
               </Col>
             </div>
           </div>

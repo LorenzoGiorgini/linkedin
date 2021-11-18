@@ -3,7 +3,7 @@ import {Modal, Button, Row, Col, Form} from "react-bootstrap"
 import {useState, useEffect} from "react"
 import {FaRegCommentDots} from "react-icons/fa"
 
-export default function AddComment({fetchComments, userId}) {
+export default function AddComment({fetchComments, id, userId}) {
  const [show, setShow] = useState(false)
  const handleClose = () => setShow(false)
  const handleShow = () => setShow(true)
@@ -11,9 +11,9 @@ export default function AddComment({fetchComments, userId}) {
  useEffect( () => {} , [])
 
  const [Comment, setComment] = useState({
-     comment: "",
-    //  userId: "",
-    postId: userId
+    comment: "",
+    userId: "",
+    id: id,
  })
 
  const sendComments = (e) => {
@@ -27,7 +27,7 @@ export default function AddComment({fetchComments, userId}) {
  const addComment = async () => {
 try {
     const response = await fetch(
-        `https://strive-linkedin.herokuapp.com/posts/${userId}/comment`,
+        `https://strive-linkedin.herokuapp.com/posts/${id}/comment`,
         {
             method: "POST",
             body: JSON.stringify(Comment),
@@ -48,7 +48,6 @@ try {
 return(
     <>
 <FaRegCommentDots size={20} onClick={handleShow} />
-
 <Modal className="modalEditInfo" show={show} onHide={handleClose}>
   <Modal.Header className="font-weight-light" closeButton>
     <Modal.Title className="font-weight-light">Add Comment</Modal.Title>
