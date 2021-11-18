@@ -23,6 +23,7 @@ const AddJobPosition = (props) => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+    console.log(userExp);
 
     try {
       let response = await fetch(
@@ -37,13 +38,11 @@ const AddJobPosition = (props) => {
       );
       if (response.ok) {
         let data = await response.json();
-        
-        await submitFile(data.experiences.reverse()[0]);
-
+        await submitFile(data._id);
         props.setShow(false);
-        
-        await  fetchUserExp()
-        
+        setTimeout(() => {
+          fetchUserExp()
+        } , 2000);
       }
     } catch (error) {
       console.log(error);
