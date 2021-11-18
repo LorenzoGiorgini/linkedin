@@ -138,6 +138,15 @@ const SinglePost = (props) => {
             </div>
             <span className="feed-buttons">
               <i class="bi bi-share-fill mr-2"></i>Share
+          <div className="d-flex flex-column  mb-2 col-8 mt-3">
+            <Link to={"/profile/" + props.element.user._id}>
+              <span className="span-big">
+                {props.element.user.name} {props.element.user.surname}
+              </span>
+            </Link>
+
+            <span className="span-small text-muted">
+              {props.element.user.title}
             </span>
             <span className="feed-buttons">
               <i class="bi bi-cursor-fill mr-2"></i>Send
