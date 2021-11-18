@@ -38,11 +38,9 @@ const AddJobPosition = (props) => {
       );
       if (response.ok) {
         let data = await response.json();
-        await submitFile(data._id);
+        await submitFile(data.experiences.reverse()[0]);
         props.setShow(false);
-        setTimeout(() => {
-          fetchUserExp()
-        } , 2000);
+        await fetchUserExp()
       }
     } catch (error) {
       console.log(error);
@@ -51,7 +49,8 @@ const AddJobPosition = (props) => {
 
   const fetchUserExp = async () => {
     try {
-      let response = await fetch(`https://strive-linkedin.herokuapp.com/profile/619234e538541a787a13c554/experiences`);
+      let response = await fetch(
+        `https://strive-linkedin.herokuapp.com/profile/619234e538541a787a13c554/experiences`);
       if (response.ok) {
         let data = await response.json();
         props.setGetExperience(data);
@@ -81,6 +80,7 @@ const AddJobPosition = (props) => {
           method: "POST"
         }
       );
+      console.log(response);
     } catch (error) {
       console.log(error);
     }
