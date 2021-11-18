@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
-import { Alert, Button, Col, Form, Modal, Row } from "react-bootstrap";
+import { Form, Modal } from "react-bootstrap";
 
-const EditPostModule = ({ show, onHide, id , fetchPosts , user }) => {
+const EditPostModule = ({ show, onHide, id , fetchPosts , profile }) => {
 
 const [post, setPost] = useState([])
 
@@ -10,12 +10,13 @@ const [post, setPost] = useState([])
       let response = await fetch(`https://strive-linkedin.herokuapp.com/posts/${id}`);
       if (response.ok) {
         let data = await response.json();
+
         setPost(data);
       }
     } catch (error) {
       console.log(error);
     }
-  };
+  }
 
 
   const editSelectedPost = async () => {
@@ -31,13 +32,13 @@ const [post, setPost] = useState([])
             "Content-type": "application/json"
           }
         }
-      );
+      )
       onHide()
       fetchPosts()
     } catch (error) {
-      console.log(error);
+      console.log(error)
     }
-  };
+  }
 
   const handleInput = (propertyName, value) => {
     setPost({
@@ -59,16 +60,14 @@ const [post, setPost] = useState([])
         </Modal.Header>
         <Modal.Body>
           <div className="d-flex align-items-center mb-3 profile-image-container">
-            <img src={user[0].image} alt="profile" className="profile-img mr-3"></img>
-            <h5>{user[0].name}{" "}{user[0].surname}</h5>
+            <img src={profile.image} alt="profile" className="profile-img mr-3"></img>
+            <h5>{profile.name}{" "}{profile.surname}</h5>
           </div>
           <Form
             id="post-form"
             className="w-100"
             onSubmit={(e) => {
               e.preventDefault();
-
-            //   setData({ text: "" });
 
               onHide();
             }}
@@ -84,7 +83,7 @@ const [post, setPost] = useState([])
                 value={post.text} 
                 onChange={e => handleInput('text', e.target.value)}
               
-                // onChange={(e) => getData(e)}
+                
                 required
               />
             </Form.Group>
