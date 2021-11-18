@@ -31,6 +31,13 @@ const sendData = (e) => {
     handleClose()
 }
 
+const deleteFunc = (e) => {
+    e.preventDefault();
+    deleteComment();
+    handleClose()
+    fetchComments()
+}
+
 const editComment = async () => {
     try {
         let response = await fetch(
@@ -43,6 +50,29 @@ const editComment = async () => {
                 }
             }
         )
+        if(response.ok){
+            let data = await response.json()
+            fetchComments()
+        }else{
+            console.log("error")
+        }
+    } catch (error) {
+        console.log(error)
+    }
+}
+
+const deleteComment = async () => {
+    try {
+        let response = await fetch(
+            `https://strive-linkedin.herokuapp.com/posts/${id}/comment/${commentId}`,
+            {
+                method: "DELETE",
+                body: JSON.stringify(EditToComment),
+                headers: {
+                    "Content-type": "application/json;"
+                },
+            }
+        ) 
         if(response.ok){
             let data = await response.json()
             fetchComments()
@@ -74,9 +104,17 @@ const editComment = async () => {
                 </Form.Group>
                 </Col>
             </Row>
-
         </Modal.Body>
         <Modal.Footer>
+        <Row>
+                <Col>
+                <Button
+                variant="light"
+                className="mr-auto"
+                onClick={(e) => deleteFunc(e)}
+                >Delete</Button>
+                </Col>
+            </Row>
           <Button variant="primary" type="submit">
             Save
           </Button>
