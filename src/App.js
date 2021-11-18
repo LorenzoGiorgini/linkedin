@@ -9,14 +9,12 @@ import { useState } from "react";
 
 function App() {
 
-  const [user, setUser] = useState(null);
-
   return (
     <>
       <Router>
         <Switch>
-          <Route path="/profile/:id" exact render={() => <Profile user={user} setUser={setUser}/>} />
-          <Route path="/feed/" exact render={() => <Home user={user} setUser={setUser}/>} />
+          <Route path="/profile/:id" exact render={() => <Profile />} />
+          <Route path="/feed/" exact render={() => <Home />} />
           <Route render={() => <Redirect to="/feed/" />} />
         </Switch>
       </Router>

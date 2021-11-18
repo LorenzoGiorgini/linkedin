@@ -10,6 +10,8 @@ const Profile = (props) => {
   
   const [posts, setPosts] = useState([]);
 
+  const [ profile , setProfile ] = useState([])
+
   const fetchPosts = async () => {
     try {
       let response = await fetch(`https://strive-linkedin.herokuapp.com/posts/`);
@@ -23,22 +25,35 @@ const Profile = (props) => {
     }
   };
 
+  const fetchProfile = async () => {
+    try {
+      let response = await fetch(
+        `https://strive-linkedin.herokuapp.com/profile/619234e538541a787a13c554`);
+      if (response.ok) {
+        let data = await response.json()
+        setProfile(data)
+      }
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
   useEffect(() => {
     fetchPosts();
+    fetchProfile();
   }, []);
 
   return (
-    props.user !== null &&
     <>
     <NavBar/>
     <Container style={{ marginTop: "100px" }}>
       <Row>
         <Col xs={12} md={4} lg={2} style={{ height: "100%" }}>
-          <LeftSideBarCardProfile user={props.user}/>
+          <LeftSideBarCardProfile profile={profile}/>
         </Col>
         <Col xs={12} md={8} lg={6} style={{ height: "100%" }}>
-          <NewPost user={props.user} setUser={props.setUser} posts={posts} fetchPosts={fetchPosts} />
-          <ExistingPosts user={props.user} posts={posts} fetchPosts={fetchPosts} />
+          <NewPost profile={profile}  posts={posts} fetchPosts={fetchPosts} />
+          <ExistingPosts profile={profile} posts={posts} fetchPosts={fetchPosts} />
         </Col>
 
         <Col md={4} className="d-none d-md-block" style={{ height: "100%" }}>

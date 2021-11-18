@@ -3,7 +3,7 @@ import { Alert, Button, Col, Form, Modal, Row } from "react-bootstrap";
 
 import "../CssStyles/NewPost.css";
 
-const NewPostModal = ({ fetchPosts, posts, setPosts, user }) => {
+const NewPostModal = ({ fetchPosts, posts, profile }) => {
   const [show, setShow] = useState(false);
   const [newpost, setNewPost] = useState(null);
   const [imagePost, setImagePost] = useState(null);
@@ -14,7 +14,7 @@ const NewPostModal = ({ fetchPosts, posts, setPosts, user }) => {
   const handleInput = (propertyName, value) => {
     setNewPost({
       ...newpost,
-      user: user[0]._id.toString(),
+      user: "619234e538541a787a13c554",
       [propertyName]: value
     });
   };
@@ -86,12 +86,12 @@ const NewPostModal = ({ fetchPosts, posts, setPosts, user }) => {
                   <Col sm={2}>
                     <img
                       className="profile-img mr-5"
-                      src={user[0].image}
+                      src={profile.image}
                       alt=""
                     />
                   </Col>
                   <Col col={10}>
-                    <h3>{user[0].name}{" "}{user[0].surname}</h3>
+                    <h3>{profile.name}{" "}{profile.surname}</h3>
                   </Col>
                 </Row>
               </Form.Label>

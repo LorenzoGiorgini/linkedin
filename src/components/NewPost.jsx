@@ -10,18 +10,18 @@ const NewPost = (props) => {
   const handleShow = () => setShow(true);
 
   return (
-    props.user[0] !== null &&
+    props.profile !== null &&
     <>
       <div className="container-post">
       <div className="padding-post">
       <section className="feedpost-section">
         <div className="d-flex">
-          <img src={props.user[0].image} alt=" "  className="profile-img"/>
+          <img src={props.profile.image} alt=" "  className="profile-img"/>
 
           <div className="feedpost-section">
               
             
-            <NewPostModal user={props.user} setUser={props.setUser} posts={props.posts} fetchPosts={props.fetchPosts}/>
+            <NewPostModal profile={props.profile} posts={props.posts} fetchPosts={props.fetchPosts}/>
           </div>
          
         </div>
