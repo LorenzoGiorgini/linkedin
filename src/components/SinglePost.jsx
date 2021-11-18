@@ -5,7 +5,7 @@ import EditPostModule from "./EditPostModule";
 import { Link } from "react-router-dom";
 import AddComment from "./AddComment";
 import { Row, Col } from "react-bootstrap";
-
+import "../CssStyles/comments.css"
 
 const SinglePost = (props) => {
   // console.log("This is element", props.element);
@@ -30,7 +30,7 @@ const SinglePost = (props) => {
       if (response.ok) {
         let array = await response.json();
         setComments(array.data);
-        console.log("This array of comments", array.data);
+        // console.log("This array of comments", array.data);
       }
     } catch (error) {
       console.log(error);
@@ -145,7 +145,7 @@ const SinglePost = (props) => {
           {comments.length !== -1 &&
         comments.map((c) => (
           <div>
-            <Row>
+            < div className="row">
               <Col xs="1">
                  <img 
                     className="comment-image"
@@ -153,21 +153,23 @@ const SinglePost = (props) => {
                     style={{borderRadius: 50}}/> 
               </Col>
               <Col xs="11">
-                <div className="ml-2 commentBox d-flex">
+                <div className="ml-2 comment-box d-flex">
                   <div className="">
+                    <div className="ml-2 py-0 comment-name"> 
                     {" "}
                     {props.element.user.name}
+                    {" "}
                     {props.element.user.surname} {" "}
                   </div>
-                  <div className="ml-2 py-0 comment-title">
-                    {" "}
-                    {props.element.user.title}{" "}
+                  <div className="ml-2 py-0 comment-title text-muted">
+                    {props.element.user.title} {" "}
                   </div>
-                  <div className="ml-2 py-0 commentText">{c.comment}</div>
+                  <div className="ml-2 py-0 comment-text">{c.comment}</div>
+                  </div>
                 </div>
                 <div className="d-flex ml-auto"></div>
               </Col>
-            </Row>
+            </div>
           </div>
         ))}
         </div>
