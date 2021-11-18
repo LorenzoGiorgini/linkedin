@@ -19,7 +19,7 @@ const ExperiencePopUp = (props) => {
   const fetchSelectedJob = async () => {
     try {
       let response = await fetch(
-        `https://strive-linkedin.herokuapp.com/profile/${props.user[0]._id}/experiences/${props.elementId}`,
+        `https://strive-linkedin.herokuapp.com/profile/me/experiences/${props.elementId}`,
         {
           method: "GET"
         }
@@ -27,6 +27,7 @@ const ExperiencePopUp = (props) => {
       if(response.ok) {
         let data = await response.json();
         setJobObj(data);
+        console.log(data);
       }
     } catch (error) {
       console.log(error);
@@ -36,7 +37,7 @@ const ExperiencePopUp = (props) => {
   const deleteSelectedJob = async () => {
     try {
       let response = await fetch(
-        `https://strive-linkedin.herokuapp.com/profile/${props.user[0]._id}/experiences/${props.elementId}`,
+        `https://strive-linkedin.herokuapp.com/profile/me/experiences/${props.elementId}`,
         {
           method: "DELETE"
         }
@@ -50,7 +51,7 @@ const ExperiencePopUp = (props) => {
   const editSelectedJob = async () => {
     try {
       let response = await fetch(
-        `https://strive-linkedin.herokuapp.com/profile/${props.user[0]._id}/experiences/${props.elementId}`,
+        `https://strive-linkedin.herokuapp.com/profile/me/experiences/${props.elementId}`,
         {
           method: "PUT",
           body: JSON.stringify(jobobj),
@@ -60,7 +61,7 @@ const ExperiencePopUp = (props) => {
         }
       );
       if(response.ok) {
-        await submitFile(jobobj._id)
+        submitFile(jobobj._id)
 
       }
     } catch (error) {
@@ -86,14 +87,15 @@ const ExperiencePopUp = (props) => {
 
       let formData = new FormData();
 
-      formData.append("image", image);
+      formData.append("experience", image);
       let response = await fetch(
-        `https://strive-linkedin.herokuapp.com/profile/${props.user[0]._id}/experiences/${props.elementId}/picture`,
+        `https://strive-linkedin.herokuapp.com/profile/616434dda890cc0015cf07f0/experiences/${id}/picture`,
         {
           body: formData,
           method: "POST"
         }
       );
+      console.log(response);
       props.fetchUserExp(params.id);
     } catch (error) {
       console.log(error);
