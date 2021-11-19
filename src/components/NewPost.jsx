@@ -4,12 +4,13 @@ import "../CssStyles/NewPost.css";
 import NewPostModal from "./NewPostModal";
 
 const NewPost = (props) => {
-    // States from Post Modal
+
   const [show, setShow] = useState(false);
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
 
   return (
+    props.profile !== null &&
     <>
       <div className="container-post">
       <div className="padding-post">
@@ -20,7 +21,7 @@ const NewPost = (props) => {
           <div className="feedpost-section">
               
             
-            <NewPostModal profile={props.profile} setPosts={props.setPosts} posts={props.posts} fetchPosts={props.fetchPosts}/>
+            <NewPostModal profile={props.profile} posts={props.posts} fetchPosts={props.fetchPosts}/>
           </div>
          
         </div>

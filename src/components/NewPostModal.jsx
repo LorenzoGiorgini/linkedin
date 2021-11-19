@@ -3,7 +3,7 @@ import { Alert, Button, Col, Form, Modal, Row } from "react-bootstrap";
 
 import "../CssStyles/NewPost.css";
 
-const NewPostModal = ({ fetchPosts, posts, setPosts, profile }) => {
+const NewPostModal = ({ fetchPosts, posts, profile }) => {
   const [show, setShow] = useState(false);
   const [newpost, setNewPost] = useState(null);
   const [imagePost, setImagePost] = useState(null);
@@ -14,14 +14,15 @@ const NewPostModal = ({ fetchPosts, posts, setPosts, profile }) => {
   const handleInput = (propertyName, value) => {
     setNewPost({
       ...newpost,
-      [propertyName]: value,
+      user: "619234e538541a787a13c554",
+      [propertyName]: value
     });
   };
 
   const makeNewPost = async () => {
     try {
       let response = await fetch(
-        "https://strive-linkedin.herokuapp.com/posts/619234e538541a787a13c554",
+        "https://strive-linkedin.herokuapp.com/posts/",
         {
           method: "POST",
           body: JSON.stringify(newpost),
@@ -112,5 +113,7 @@ const NewPostModal = ({ fetchPosts, posts, setPosts, profile }) => {
     </>
   );
 };
+
+
 
 export default NewPostModal;

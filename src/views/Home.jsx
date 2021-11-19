@@ -4,9 +4,9 @@ import NewPost from "../components/NewPost"
 import { useState , useEffect } from "react"
 import LeftSideBarCardProfile from "../leftSideBarHome/LeftSideBarCardProfile"
 import RightSideBar from "../rightSideBarHome/RightSideBar"
+import NavBar from "../components/NavBar";
 
-
-const Profile = () => {
+const Profile = (props) => {
   
   const [posts, setPosts] = useState([]);
 
@@ -14,8 +14,8 @@ const Profile = () => {
 
   const fetchPosts = async () => {
     try {
-      let response = await fetch(
-        `https://strive-linkedin.herokuapp.com/posts/`,);
+      let response = await fetch(`https://strive-linkedin.herokuapp.com/posts/`);
+
       if (response.ok) {
         let data = await response.json();
         setPosts(data.data);
@@ -44,13 +44,15 @@ const Profile = () => {
   }, []);
 
   return (
+    <>
+    <NavBar/>
     <Container style={{ marginTop: "100px" }}>
       <Row>
         <Col xs={12} md={4} lg={2} style={{ height: "100%" }}>
           <LeftSideBarCardProfile profile={profile}/>
         </Col>
         <Col xs={12} md={8} lg={6} style={{ height: "100%" }}>
-          <NewPost profile={profile} setPosts={setPosts} posts={posts} fetchPosts={fetchPosts} />
+          <NewPost profile={profile}  posts={posts} fetchPosts={fetchPosts} />
           <ExistingPosts profile={profile} posts={posts} fetchPosts={fetchPosts} />
         </Col>
 
@@ -59,6 +61,7 @@ const Profile = () => {
         </Col>
       </Row>
     </Container>
+    </>
   );
 };
 

@@ -9,14 +9,12 @@ const ExperienceList = (props) => {
   
   const params = useParams();
   
-  /* const [getExperience, setGetExperience] = useState([]); */
-  
   const fetchUserExp = async () => {
     try {
-      let response = await fetch(`https://striveschool-api.herokuapp.com/api/profile/${props.user._id}/experiences`,);
+      let response = await fetch(`https://strive-linkedin.herokuapp.com/profile/${props.user._id}/experiences`);
       if (response.ok) {
         let data = await response.json();
-        props.setGetExperience(data);
+        props.setGetExperience(data.experiences);
       }
     } catch (error) {
       console.log(error);
@@ -37,10 +35,11 @@ const ExperienceList = (props) => {
               <Col>
               <div className="d-flex align-items-center justify-content-between mb-3">
                 <h2 style={{fontSize: "20px"}}>Experience</h2>
-                {params.id === "me" && <Plus id="plus-icon" style={{fontSize:"35px"}} />}
+                {params.id === "619234e538541a787a13c554" && <Plus id="plus-icon" style={{fontSize:"35px"}} />}
               </div>
               {props.getExperience.map((element) => (
                 <SingleExperience
+                  user={props.user}
                   role={element.role}
                   location={element.area}
                   date={element.startDate}
