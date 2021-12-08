@@ -18,20 +18,20 @@ const Jumbo = (props) => {
       <div className="padding-jumbo">
         <div className="image-container">
           <div className="img-profile-container">
-            <img className="img-profile" onClick={() => setImageModal(true)} src={props.user.image} />
+            <img className="img-profile" onClick={() => setImageModal(true)} src={props.user[0].image} />
           </div>
-          <ImageModal fetchUser={props.fetchUser} imageModal={imageModal} setImageModal={setImageModal} />
-          {params.id === "me" /*  || params.id ==="616434dda890cc0015cf07f0" */ && <PopUp getExperience={props.getExperience} setGetExperience={props.setGetExperience} fetchUser={props.fetchUser} obj={props.user} />}
+          {params.id === props.user[0]._id && <ImageModal fetchUser={props.fetchUser} imageModal={imageModal} setImageModal={setImageModal}  />}
+          {params.id === props.user[0]._id && <PopUp getExperience={props.getExperience} setGetExperience={props.setGetExperience} fetchUser={props.fetchUser} obj={props.user} />}
         </div>
         <Row>
           <Col md={8} className="color">
             <h1 className="font-big">
-              {props.user.name} {props.user.surname}
+              {props.user[0].name} {props.user[0].surname}
             </h1>
-            <div className="font-medium">{props.user.title}</div>
+            <div className="font-medium">{props.user[0].title}</div>
             <div className="d-flex flex-column">
               <span className="text-muted font-small">
-                {props.user.area}{" "}
+                {props.user[0].area}{" "}
                 <span className="contact-info font-small">Contact Info</span>{" "}
               </span>
               <span className="font-small connections">30 Connections</span>

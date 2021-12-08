@@ -1,26 +1,16 @@
 import { useState, useEffect } from "react";
 import { Alert, Button, Col, Form, Modal, Row } from "react-bootstrap";
 
-const EditPostModule = ({ show, onHide, id , fetchPosts , profile }) => {
+const EditPostModule = ({ show, onHide, id , fetchPosts , user }) => {
 
 const [post, setPost] = useState([])
 
   const fetchSinglePost = async () => {
     try {
-      let response = await fetch(
-        `https://striveschool-api.herokuapp.com/api/posts/${id}`,
-        {
-          headers: {
-            Authorization:
-              "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MTY0MzRkZGE4OTBjYzAwMTVjZjA3ZjAiLCJpYXQiOjE2MzM5NTcwODUsImV4cCI6MTYzNTE2NjY4NX0.0KiKm3Nj5tYFKqs2AZK3KMWJf7ldhr1wmccH_VdoyjU",
-          },
-        }
-      );
+      let response = await fetch(`https://strive-linkedin.herokuapp.com/posts/${id}`);
       if (response.ok) {
         let data = await response.json();
-        console.log("Data", data);
         setPost(data);
-        
       }
     } catch (error) {
       console.log(error);
@@ -33,15 +23,13 @@ const [post, setPost] = useState([])
     
     try {
       let response = await fetch(
-        `https://striveschool-api.herokuapp.com/api/posts/${id}`,
+        `https://strive-linkedin.herokuapp.com/posts/${id}`,
         {
           method: "PUT",
           body: JSON.stringify(post),
           headers: {
-            Authorization:
-              "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MTY0MzRkZGE4OTBjYzAwMTVjZjA3ZjAiLCJpYXQiOjE2MzM5NTcwODUsImV4cCI6MTYzNTE2NjY4NX0.0KiKm3Nj5tYFKqs2AZK3KMWJf7ldhr1wmccH_VdoyjU",
-            "Content-type": "application/json",
-          },
+            "Content-type": "application/json"
+          }
         }
       );
       onHide()
@@ -71,8 +59,8 @@ const [post, setPost] = useState([])
         </Modal.Header>
         <Modal.Body>
           <div className="d-flex align-items-center mb-3 profile-image-container">
-            <img src={profile.image} alt="profile" className="profile-img mr-3"></img>
-            <h5>{profile.name}{" "}{profile.surname}</h5>
+            <img src={user[0].image} alt="profile" className="profile-img mr-3"></img>
+            <h5>{user[0].name}{" "}{user[0].surname}</h5>
           </div>
           <Form
             id="post-form"

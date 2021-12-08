@@ -4,18 +4,16 @@ import NewPost from "../components/NewPost"
 import { useState , useEffect } from "react"
 import LeftSideBarCardProfile from "../leftSideBarHome/LeftSideBarCardProfile"
 import RightSideBar from "../rightSideBarHome/RightSideBar"
+import NavBar from "../components/NavBar";
 
-
-const Profile = () => {
+const Profile = (props) => {
   
   const [posts, setPosts] = useState([]);
 
-  const [ profile , setProfile ] = useState([])
-
   const fetchPosts = async () => {
     try {
-      let response = await fetch(
-        `https://strive-linkedin.herokuapp.com/posts/`,);
+      let response = await fetch(`https://strive-linkedin.herokuapp.com/posts/`);
+
       if (response.ok) {
         let data = await response.json();
         setPosts(data.data);
@@ -25,33 +23,22 @@ const Profile = () => {
     }
   };
 
-  const fetchProfile = async () => {
-    try {
-      let response = await fetch(
-        `https://strive-linkedin.herokuapp.com/profile/619234e538541a787a13c554`);
-      if (response.ok) {
-        let data = await response.json()
-        setProfile(data)
-      }
-    } catch (error) {
-      console.log(error);
-    }
-  };
-
   useEffect(() => {
     fetchPosts();
-    fetchProfile();
   }, []);
 
   return (
+    props.user !== null &&
+    <>
+    <NavBar/>
     <Container style={{ marginTop: "100px" }}>
       <Row>
         <Col xs={12} md={4} lg={2} style={{ height: "100%" }}>
-          <LeftSideBarCardProfile profile={profile}/>
+          <LeftSideBarCardProfile user={props.user}/>
         </Col>
         <Col xs={12} md={8} lg={6} style={{ height: "100%" }}>
-          <NewPost profile={profile} setPosts={setPosts} posts={posts} fetchPosts={fetchPosts} />
-          <ExistingPosts profile={profile} posts={posts} fetchPosts={fetchPosts} />
+          <NewPost user={props.user} setUser={props.setUser} posts={posts} fetchPosts={fetchPosts} />
+          <ExistingPosts user={props.user} posts={posts} fetchPosts={fetchPosts} />
         </Col>
 
         <Col md={4} className="d-none d-md-block" style={{ height: "100%" }}>
@@ -59,6 +46,7 @@ const Profile = () => {
         </Col>
       </Row>
     </Container>
+    </>
   );
 };
 

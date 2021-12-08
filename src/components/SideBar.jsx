@@ -17,16 +17,13 @@ const Sidebar = (props) => {
   const fetchData = async () => {
     try {
       let response = await fetch(
-        "https://striveschool-api.herokuapp.com/api/profile/",
-        {
-          headers: {
-            Authorization:
-              "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MTYzZjg0NWE4OTBjYzAwMTVjZjA3ZWEiLCJpYXQiOjE2MzM5NDE1NzQsImV4cCI6MTYzNTE1MTE3NH0.l0p-bV1Pw_UsfkiDzTx5nS4PTO6diKdzQCQWqrHyars",
-          },
-        }
+        "https://strive-linkedin.herokuapp.com/profile/"
+        
       );
       
       let data = await response.json();
+
+      console.log(data)
       setProfiles(data.slice(0, 5));
     } catch (error) {
       console.log(error, "Error");

@@ -9,7 +9,7 @@ const SingleExperience = (props) => {
   const params = useParams();
   
   const [pressed, setPressed] = useState(false)
-console.log({props})
+
   return (
     <>
       <Row id="experience-single-row">
@@ -22,7 +22,7 @@ console.log({props})
           <p style={{display:"flex" , justifyContent: "space-between"}}>
             {props.role}
             {
-            params.id === "me" && 
+            params.id === props.user[0]._id && 
             <div className="pencil" onClick={() => setPressed(true)}>
               <svg
                 xmlns="http://www.w3.org/2000/svg"
@@ -45,6 +45,7 @@ console.log({props})
       </Row>
       {pressed === true && (
         <ExperiencePopUp
+          user={props.user}
           pressed={pressed}
           setPressed={setPressed}
           elementId={props.id}
