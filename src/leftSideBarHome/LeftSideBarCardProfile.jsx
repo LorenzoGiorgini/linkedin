@@ -1,11 +1,18 @@
 import "../CssStyles/LeftSideBarCardProfile.css"
 
 const LeftSideBarCardProfile = ({profile}) => {
+
+  /* let section = document.querySelector(".home-my-profile-card")
+
+  const moveDiv = (e) => {
+    section.style.transform = "translate(e.offset)"
+  } */
+
   return (
+    profile !== null &&
     <>
-      <section className="home-my-profile-card mt-3">
+      <section className="home-my-profile-card mt-3" /* onClick={(e) => moveDiv(e)} */>
         <div className="hero"></div>
-        {/* Link to Profile with a Link to profile/me */}
         <div className="img-holder">
           <img
             className="avatar rounded-circle"
